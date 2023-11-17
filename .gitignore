@@ -33,5 +33,4 @@ yarn-error.log*
 # vercel
 .vercel
 /.yarn/
-/src/__generated__/
 
