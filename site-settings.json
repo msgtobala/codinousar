@@ -36,17 +36,17 @@
 
   "site_info": {
     "site_title": "Codinousar Blog",
-    "site_description": "Ncmaz Nextjs Blog headless WordPress",
-    "site_keywords": "Ncmaz Nextjs Blog",
+    "site_description": "Codinousar Blog headless WordPress",
+    "site_keywords": "Codinousar Blog",
     "site_author": "Balaji Venkatraman",
-    "site_email": "Your Email",
+    "site_email": "codinousar@gmail.com",
     "site_phone": "Your Phone",
     "site_address": "Your Address",
     "site_city": "Your City",
     "site_state": "Your State",
     "site_zip": "Your Zip",
-    "site_country": "Your Country",
-    "site_url": "https://www.yoursite.com",
+    "site_country": "India",
+    "site_url": "https://codinousar.com/",
     "site_logo": "/logo.png",
     "site_logo_light": "/logo-light.png",
     "site_favicon": "/favicon.png"
@@ -81,7 +81,7 @@
   ],
 
   "site_footer": {
-    "all_rights_reserved_text": "© 2023 ChisNghiax Company, Inc. All rights reserved."
+    "all_rights_reserved_text": "© 2023 Codinousar Company, Inc. All rights reserved."
   },
 
   "submissions-settings": {
