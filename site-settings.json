@@ -1,6 +1,5 @@
 {
   "version": "0.1.1",
-
   "mailpoet_api_key": "your_mailpoet_api_key",
   "mailpoet_list_id": "3",
   "subcription_widget": {
