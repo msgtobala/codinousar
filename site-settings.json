@@ -105,7 +105,7 @@
     },
     "lost_password": {
       "is_use_lostpassword_default_of_wp": false,
-      "message": "Lost password not implemented yet! Please contact admmin for support.",
+      "message": "Lost password not implemented yet! Please contact admin for support.",
       "url_lostpassword_default_of_wp": "https://yourwebsite.com/wp-login.php?action=lostpassword"
     }
   },
