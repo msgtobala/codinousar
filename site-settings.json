@@ -19,7 +19,7 @@
     "features_list": ["Create a free account.", "Write your stories."]
   },
   "top_banner": {
-    "enable": true,
+    "enable": false,
     "description": "-50% Intro price for the next 72 hours only!.",
     "end_link": {
       "url": "#",
@@ -35,10 +35,10 @@
   },
 
   "site_info": {
-    "site_title": "Ncmaz Nextjs Blog",
+    "site_title": "Codinousar Blog",
     "site_description": "Ncmaz Nextjs Blog headless WordPress",
     "site_keywords": "Ncmaz Nextjs Blog",
-    "site_author": "ChisNghiax",
+    "site_author": "Balaji Venkatraman",
     "site_email": "Your Email",
     "site_phone": "Your Phone",
     "site_address": "Your Address",
