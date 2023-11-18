@@ -26,23 +26,21 @@
       "new_tab": false
     }
   },
-
   "top_category_section": {
     "enable": true,
     "title": "Discover top 10 categories",
     "sub_title": "Let's explore the most popular categories"
   },
-
   "site_info": {
     "site_title": "Codinousar Blog",
     "site_description": "Codinousar Blog headless WordPress",
     "site_keywords": "Codinousar Blog",
     "site_author": "Balaji Venkatraman",
     "site_email": "codinousar@gmail.com",
-    "site_phone": "Your Phone",
+    "site_phone": "+91-8610340995",
     "site_address": "Your Address",
-    "site_city": "Your City",
-    "site_state": "Your State",
+    "site_city": "Bengaluru",
+    "site_state": "Karnataka",
     "site_zip": "Your Zip",
     "site_country": "India",
     "site_url": "https://codinousar.com/",
@@ -50,60 +48,60 @@
     "site_logo_light": "/logo-light.png",
     "site_favicon": "/favicon.png"
   },
-
   "site_socials": [
     {
-      "name": "facebook",
-      "url": "https://www.facebook.com/yourfacebookpage",
-      "icon": "/images/socials/facebook.svg",
-      "description": "Follow us on Facebook"
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/balaji-venkatraman/",
+      "icon": "/images/socials/linkedin-in.svg",
+      "description": "Follow us on LinkedIn"
     },
-    {
-      "name": "twitter",
-      "url": "https://twitter.com/yourtwitterpage",
-      "icon": "/images/socials/x-twitter.svg",
-      "description": "Follow us on Twitter"
-    },
-
     {
       "name": "github",
-      "url": "https://www.github.com/yourmediumpage",
+      "url": "https://github.com/msgtobala",
       "icon": "/images/socials/github.svg",
       "description": "Follow us on Github"
     },
     {
-      "name": "tiktok",
-      "url": "https://www.tiktok.com/yourtiktokpage",
-      "icon": "/images/socials/tiktok.svg",
-      "description": "Follow us on Tiktok"
+      "name": "twitter",
+      "url": "https://twitter.com/codinousar",
+      "icon": "/images/socials/x-twitter.svg",
+      "description": "Follow us on Twitter"
+    },
+    {
+      "name": "facebook",
+      "url": "https://www.facebook.com/profile.php?id=61553458602398",
+      "icon": "/images/socials/facebook.svg",
+      "description": "Follow us on Facebook"
+    },
+    {
+      "name": "Youtube",
+      "url": "https://youtube.com/@codinousar?si=vrah8tg4Mr5FASUu",
+      "icon": "/images/socials/youtube.svg",
+      "description": "Follow us on youtube"
     }
   ],
-
   "site_footer": {
     "all_rights_reserved_text": "© 2023 Codinousar Company, Inc. All rights reserved."
   },
-
   "submissions-settings": {
     "enable": true,
     "max_categories_allowed": 3,
     "max_tags_allowed": 5
   },
-
   "signUp_page": {
     "title": "Create an account",
     "sub_title": "Enter your email below to create your account.",
     "blockquote": {
-      "text": "This library has saved me countless hours of work and helped me deliver stunning designs to my clients faster than ever before.",
-      "author": "Sofia Davis"
+      "text": "Blogging is to writing what extreme sports are to athletics: more free-form, more accident-prone, less formal, more alive. It is, in many ways, writing out loud.",
+      "author": "Andrew Sullivan"
     }
   },
-
   "signIn_page": {
     "title": "Sign in to your account",
     "sub_title": "Enter your email below to sign in to your account.",
     "blockquote": {
-      "text": "This library has saved me countless hours of work and helped me deliver stunning designs to my clients faster than ever before.",
-      "author": "Sofia Davis"
+      "text": "Your writing voice is the deepest possible reflection of who you are. The job of your voice is not to seduce or flatter or make well-shaped sentences. In your voice, your readers should be able to hear the contents of your mind, your heart, your soul.",
+      "author": "Meg Rosoff"
     },
     "lost_password": {
       "is_use_lostpassword_default_of_wp": false,
@@ -111,7 +109,6 @@
       "url_lostpassword_default_of_wp": "https://yourwebsite.com/wp-login.php?action=lostpassword"
     }
   },
-
   "mobile_nav_sidebar": {
     "description": "Discover the most outstanding articles on all topics of life. Write your stories and share them with the community. "
   },
@@ -128,7 +125,6 @@
   "cookies_policy_page": {
     "uri": "#"
   },
-
   "empty_state": {
     "title": "No results found.",
     "description": "We couldn’t find any results. Try for something else."
