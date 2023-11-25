@@ -50,39 +50,6 @@ const ControlSettingsDemo = () => {
     );
   };
 
-  const renderRadioHomePages = () => {
-    return (
-      <div>
-        <span className="text-sm font-medium">Home demos</span>
-        <div className="mt-1.5 flex flex-wrap gap-1.5">
-          {[
-            { name: 'Home 1', uri: '/' },
-            { name: 'Home 2', uri: '/home-2' },
-            { name: 'Home 3', uri: '/home-3-podcast' },
-            { name: 'Home 4', uri: '/home-4-video' },
-            { name: 'Home 5', uri: '/home-5-gallery' },
-            { name: 'Home 6', uri: '/home-6' },
-          ].map((page) => {
-            const isPage = router.asPath === page.uri;
-            return (
-              <Link
-                href={page.uri}
-                key={page.uri}
-                className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none capitalize ${
-                  isPage
-                    ? 'bg-black dark:bg-neutral-200 text-white dark:text-black shadow-black/10 shadow-lg'
-                    : 'border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500'
-                }`}
-              >
-                {page.name}
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-    );
-  };
-
   const renderControlSelections = () => {
     return (
       <div className="ControlSelections relative z-50 hidden md:block">
@@ -116,19 +83,6 @@ const ControlSettingsDemo = () => {
                           <span className="text-sm font-medium">Dark mode</span>
                           <SwitchDarkMode2 />
                         </div>
-
-                        {renderRadioHomePages()}
-                      </div>
-                      <div className="bg-gray-50 dark:bg-white/5 p-5">
-                        <a
-                          className="flex items-center justify-center w-full px-4 py-2 !rounded-xl text-sm font-medium bg-primary-600 text-white hover:bg-primary-700"
-                          href={'#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <CheckBadgeIcon className="w-4 h-4" />
-                          <span className="ms-2">Apply Changes</span>
-                        </a>
                       </div>
                     </div>
                   </Popover.Panel>
