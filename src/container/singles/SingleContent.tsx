@@ -171,7 +171,7 @@ const SingleContent: FC<SingleContentProps> = ({ post }) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="inline-flex self-center gap-1 sm:gap-2 sticky mt-8 bottom-5 sm:bottom-8 z-40 justify-center items-center">
+        <div className="inline-flex self-center gap-1 sm:gap-2 sticky mt-8 bottom-5 left-50 sm:bottom-8 z-40 justify-center items-center">
           <div className="bg-white dark:bg-neutral-800 shadow-lg rounded-full ring-1 ring-offset-1 ring-neutral-900/5 p-1.5 flex items-center justify-center gap-1 sm:gap-2 text-xs">
             <PostCardLikeAction
               likeCount={ncPostMetaData?.likesCount || 0}
