@@ -133,9 +133,6 @@ const SearchPageLayout: FC<Props> = ({
 
         {/* === SECTION 5 === */}
         <SectionTrendingTopic categories={top10Categories || []} />
-
-        {/* SUBCRIBES */}
-        <SectionSubscribe2 />
       </div>
     </div>
   );
