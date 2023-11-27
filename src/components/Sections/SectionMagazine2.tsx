@@ -17,12 +17,8 @@ const SectionMagazine2: FC<SectionMagazine2Props> = ({ posts, className }) => {
         <Empty />
       ) : (
         <>
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ${
-              isMobile ? 'order-1' : ''
-            }`}
-          >
-            <div className="grid gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className={`grid gap-6 ${isMobile ? 'order-1' : ''}`}>
               {posts
                 .filter((_, i) => i < 3 && i > 0)
                 .map((item) => {
@@ -38,7 +34,11 @@ const SectionMagazine2: FC<SectionMagazine2Props> = ({ posts, className }) => {
             <div className={`lg:col-span-2 ${isMobile ? 'order-0' : ''}`}>
               {posts[0] && <Card2 size="large" post={posts[0]} />}
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-1 md:col-span-3 xl:col-span-1">
+            <div
+              className={`grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-1 md:col-span-3 xl:col-span-1 ${
+                isMobile ? 'order-2' : ''
+              }`}
+            >
               {posts
                 .filter((_, i) => i < 5 && i >= 3)
                 .map((item) => {
@@ -54,11 +54,7 @@ const SectionMagazine2: FC<SectionMagazine2Props> = ({ posts, className }) => {
           </div>
 
           {!!posts[5] && (
-            <div
-              className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 ${
-                isMobile ? 'order-2' : ''
-              }`}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
               {posts
                 .filter((_, i) => i >= 5)
                 .map((item) => {
