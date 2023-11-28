@@ -66,7 +66,7 @@ const NcmazFaustBlockMagazine: WordPressBlock<
   const [queryGetPostByVariablesFromSSR, getPostByVariablesFromSSRResult] =
     useLazyQuery(QUERY_GET_POSTS_BY, {
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: 'GET', mode: 'no-cors' } },
+      context: { fetchOptions: { method: 'GET' } },
       onError: (error) => {
         errorHandling(error);
       },

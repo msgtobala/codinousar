@@ -4,27 +4,6 @@ const { withFaust, getWpHostname } = require("@faustwp/core");
  * @type {import('next').NextConfig}
  **/
 module.exports = withFaust({
-  async headers() {
-    return [
-      {
-        source: "/graphql",
-        headers: [
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "https://codinousar.site/",
-          },
-          {
-            key: "Access-Control-Allow-Methods",
-            value: "GET, POST, OPTIONS",
-          },
-          {
-            key: "Access-Control-Allow-Headers",
-            value: "Content-Type",
-          },
-        ],
-      },
-    ];
-  },
   experimental: {
     typedRoutes: false,
     appDir: false,
