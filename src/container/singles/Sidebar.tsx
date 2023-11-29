@@ -16,9 +16,7 @@ export const Sidebar: FC<SidebarProps> = ({
   return (
     <div className={`nc-SingleSidebar ${className}`}>
       <WidgetAddSubscriberForm />
-
       <WidgetSocialsFollow />
-
       <WidgetCategories categories={categories || []} />
     </div>
   );
