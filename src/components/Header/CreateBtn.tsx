@@ -1,23 +1,30 @@
-import { PlusIcon } from "@heroicons/react/24/outline";
-import { FC } from "react";
-import Link from "next/link";
-import { useLoginModal } from "@/container/LoginModalProvider";
-import { NC_SITE_SETTINGS } from "@/contains/site-settings";
-import { RootState } from "@/stores/store";
-import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
+import { PlusIcon } from '@heroicons/react/24/outline';
+import { FC } from 'react';
+import Link from 'next/link';
+import { useLoginModal } from '@/container/LoginModalProvider';
+import { NC_SITE_SETTINGS } from '@/contains/site-settings';
+import { RootState } from '@/stores/store';
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 interface Props {
   className?: string;
 }
 
-const CreateBtn: FC<Props> = ({ className = "hidden md:block " }) => {
-  const { isReady, isAuthenticated } = useSelector(
-    (state: RootState) => state.viewer.authorizedUser
+const CreateBtn: FC<Props> = ({ className = 'hidden md:block ' }) => {
+  const { viewer, authorizedUser } = useSelector(
+    (state: RootState) => state.viewer
   );
+  const { isAuthenticated, isReady } = authorizedUser;
+  const userRole = viewer?.roles?.edges[0].node.name ?? undefined;
+  const canEdit = userRole?.toLocaleLowerCase() !== 'subscriber';
   const { openLoginModal } = useLoginModal();
 
-  if (NC_SITE_SETTINGS["submissions-settings"].enable === false) {
+  if (
+    NC_SITE_SETTINGS['submissions-settings'].enable === false ||
+    !canEdit ||
+    userRole === undefined
+  ) {
     return null;
   }
 
@@ -31,7 +38,7 @@ const CreateBtn: FC<Props> = ({ className = "hidden md:block " }) => {
           if (!isAuthenticated) {
             e.preventDefault();
             if (!isReady) {
-              toast.error("Please wait a moment, data is being prepared.");
+              toast.error('Please wait a moment, data is being prepared.');
               return;
             }
             openLoginModal();
