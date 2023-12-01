@@ -1801,8 +1801,6 @@ export type CoreButtonAttributes = BlockWithSupportsAnchor & {
   rel?: Maybe<Scalars['String']['output']>;
   /** The &quot;style&quot; field on the &quot;CoreButton&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;tagName&quot; field on the &quot;CoreButton&quot; block */
-  tagName?: Maybe<Scalars['String']['output']>;
   /** The &quot;text&quot; field on the &quot;CoreButton&quot; block */
   text?: Maybe<Scalars['String']['output']>;
   /** The &quot;textAlign&quot; field on the &quot;CoreButton&quot; block */
@@ -1811,8 +1809,6 @@ export type CoreButtonAttributes = BlockWithSupportsAnchor & {
   textColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;title&quot; field on the &quot;CoreButton&quot; block */
   title?: Maybe<Scalars['String']['output']>;
-  /** The &quot;type&quot; field on the &quot;CoreButton&quot; block */
-  type?: Maybe<Scalars['String']['output']>;
   /** The &quot;url&quot; field on the &quot;CoreButton&quot; block */
   url?: Maybe<Scalars['String']['output']>;
   /** The &quot;width&quot; field on the &quot;CoreButton&quot; block */
@@ -2869,8 +2865,6 @@ export type CoreDetailsAttributes = {
   fontSize?: Maybe<Scalars['String']['output']>;
   /** The &quot;gradient&quot; field on the &quot;CoreDetails&quot; block */
   gradient?: Maybe<Scalars['String']['output']>;
-  /** The &quot;layout&quot; field on the &quot;CoreDetails&quot; block */
-  layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreDetails&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;showContent&quot; field on the &quot;CoreDetails&quot; block */
@@ -3029,22 +3023,10 @@ export type CoreFootnotes = EditorBlock & PageEditorBlock & PostEditorBlock & {
 /** Attributes of the CoreFootnotes Block Type */
 export type CoreFootnotesAttributes = {
   __typename?: 'CoreFootnotesAttributes';
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  backgroundColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;borderColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  borderColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CoreFootnotes&quot; block */
   className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fontFamily&quot; field on the &quot;CoreFootnotes&quot; block */
-  fontFamily?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fontSize&quot; field on the &quot;CoreFootnotes&quot; block */
-  fontSize?: Maybe<Scalars['String']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreFootnotes&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;style&quot; field on the &quot;CoreFootnotes&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;textColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  textColor?: Maybe<Scalars['String']['output']>;
 };
 
 /** A block used for editing the site */
@@ -3401,8 +3383,6 @@ export type CoreImageAttributes = BlockWithSupportsAnchor & {
   href?: Maybe<Scalars['String']['output']>;
   /** The &quot;id&quot; field on the &quot;CoreImage&quot; block */
   id?: Maybe<Scalars['Float']['output']>;
-  /** The &quot;lightbox&quot; field on the &quot;CoreImage&quot; block */
-  lightbox?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;linkClass&quot; field on the &quot;CoreImage&quot; block */
   linkClass?: Maybe<Scalars['String']['output']>;
   /** The &quot;linkDestination&quot; field on the &quot;CoreImage&quot; block */
@@ -4611,24 +4591,18 @@ export type CorePostContentAttributes = {
   __typename?: 'CorePostContentAttributes';
   /** The &quot;align&quot; field on the &quot;CorePostContent&quot; block */
   align?: Maybe<Scalars['String']['output']>;
-  /** The &quot;backgroundColor&quot; field on the &quot;CorePostContent&quot; block */
-  backgroundColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CorePostContent&quot; block */
   className?: Maybe<Scalars['String']['output']>;
   /** The &quot;fontFamily&quot; field on the &quot;CorePostContent&quot; block */
   fontFamily?: Maybe<Scalars['String']['output']>;
   /** The &quot;fontSize&quot; field on the &quot;CorePostContent&quot; block */
   fontSize?: Maybe<Scalars['String']['output']>;
-  /** The &quot;gradient&quot; field on the &quot;CorePostContent&quot; block */
-  gradient?: Maybe<Scalars['String']['output']>;
   /** The &quot;layout&quot; field on the &quot;CorePostContent&quot; block */
   layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CorePostContent&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;style&quot; field on the &quot;CorePostContent&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;textColor&quot; field on the &quot;CorePostContent&quot; block */
-  textColor?: Maybe<Scalars['String']['output']>;
 };
 
 /** A block used for editing the site */
@@ -5169,8 +5143,6 @@ export type CoreQueryAttributes = {
   align?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CoreQuery&quot; block */
   className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;enhancedPagination&quot; field on the &quot;CoreQuery&quot; block */
-  enhancedPagination?: Maybe<Scalars['Boolean']['output']>;
   /** The &quot;layout&quot; field on the &quot;CoreQuery&quot; block */
   layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreQuery&quot; block */
@@ -5373,8 +5345,6 @@ export type CoreQueryPaginationNumbersAttributes = {
   gradient?: Maybe<Scalars['String']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;midSize&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
-  midSize?: Maybe<Scalars['Float']['output']>;
   /** The &quot;style&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
 };
