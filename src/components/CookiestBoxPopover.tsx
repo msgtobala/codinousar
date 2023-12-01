@@ -8,7 +8,7 @@ export default function CookiestBoxPopover() {
   const [isOpen, setisOpen] = useState(false);
 
   useEffect(() => {
-    if (localStorage.accessCookies !== "ok") {
+    if (localStorage?.accessCookies !== "ok") {
       setisOpen(true);
     }
   }, []);

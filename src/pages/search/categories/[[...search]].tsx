@@ -17,12 +17,14 @@ import { FOOTER_LOCATION, PRIMARY_LOCATION } from "@/contains/menu";
 import PageLayout from "@/container/PageLayout";
 import errorHandling from "@/utils/errorHandling";
 import SearchPageLayout from "@/container/SearchPageLayout";
+import getTrans from "@/utils/getTrans";
 
 const Page: FaustPage<SearchPageQueryGetCategoriesBySearchQuery> = (props) => {
   const router = useRouter();
   const initCategories = props.data?.categories?.nodes;
   const initPageInfo = props.data?.categories?.pageInfo;
   const search = router.query.search?.[0] || "";
+  const T = getTrans();
 
   const [getCategoriesBySearch, getCategoriesBySearchResult] = useLazyQuery(
     gql(` 
@@ -138,7 +140,7 @@ const Page: FaustPage<SearchPageQueryGetCategoriesBySearchQuery> = (props) => {
               loading={loading}
               onClick={handleClickShowMore}
             >
-              Show me more
+              {T["Show me more"]}
             </ButtonPrimary>
           </div>
         ) : null}

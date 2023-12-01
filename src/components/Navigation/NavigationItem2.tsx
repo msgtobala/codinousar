@@ -182,6 +182,18 @@ const NavigationItem2: FC<Props> = ({ menuItem: menuItemProp }) => {
 
   // ===================== MENU DROPDOW =====================
   const renderDropdownMenu = (menuDropdown: NavItemType) => {
+    if (!menuDropdown.children?.length) {
+      return (
+        <li
+          className={`relative focus:outline-none focus:ring-0 ${menuDropdown.cssClasses?.join(
+            " "
+          )}`}
+        >
+          <>{renderPopoverButtonCommon(menuDropdown, false)}</>
+        </li>
+      );
+    }
+
     return (
       <Popover
         as="li"
@@ -298,12 +310,13 @@ const NavigationItem2: FC<Props> = ({ menuItem: menuItemProp }) => {
     const isNotPopover =
       !menu.children?.length && !menu.ncmazfaustMenu?.isMegaMenu;
 
+    const CompnName = isNotPopover ? Link : Popover.Button;
+
     return (
-      <Popover.Button
+      <CompnName
         className={`
       ${open ? "" : "text-opacity-80"} nc-menu-lv1 relative
       group h-10 sm:h-12 px-3 py-1.5 inline-flex items-center text-sm text-neutral-800 dark:text-neutral-300 font-medium hover:text-opacity-100 focus:outline-none focus-visible:ring-0`}
-        as={isNotPopover ? Link : undefined}
         href={isNotPopover ? menu.uri || "" : ""}
       >
         <span className="">{menu.label}</span>
@@ -314,7 +327,7 @@ const NavigationItem2: FC<Props> = ({ menuItem: menuItemProp }) => {
             aria-hidden="true"
           />
         )}
-      </Popover.Button>
+      </CompnName>
     );
   };
 

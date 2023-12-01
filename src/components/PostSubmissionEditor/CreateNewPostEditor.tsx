@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, useState } from "react";
 import ButtonPrimary from "@/components/Button/ButtonPrimary";
 import TitleEditor from "./TitleEditor";
@@ -29,6 +31,7 @@ import Link from "next/link";
 import errorHandling from "@/utils/errorHandling";
 import { useSelector } from "react-redux";
 import { RootState } from "@/stores/store";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   isEditingPage?: boolean;
@@ -77,6 +80,7 @@ const CreateNewPostEditor: FC<Props> = ({
   const client = getApolloAuthClient();
   //
   const router = useRouter();
+  const T = getTrans();
   //
   const [titleContent, setTitleContent] = useState(defaultTitle);
   const [contentHTML, setContentHTML] = useState(defaultContent);
@@ -99,7 +103,7 @@ const CreateNewPostEditor: FC<Props> = ({
     {
       client,
       onCompleted: (data) => {
-        toast.success("Created new post successfully");
+        toast.success(T.pageSubmission["Created new post successfully"]);
         window.removeEventListener("beforeunload", handleBeforeunload);
         if (data.createPost?.post?.status !== "publish") {
           router.push(
@@ -124,7 +128,7 @@ const CreateNewPostEditor: FC<Props> = ({
   ] = useMutation(NC_MUTATION_UPDATE_POST, {
     client,
     onCompleted: (data) => {
-      toast.success("Update post successfully");
+      toast.success(T.pageSubmission["Update post successfully"]);
       window.removeEventListener("beforeunload", handleBeforeunload);
       setNewUpdatedUri(`/?p=${data?.updatePost?.post?.databaseId}`);
     },
@@ -280,7 +284,9 @@ const CreateNewPostEditor: FC<Props> = ({
       <div className="px-2.5 pb-10 lg:py-10 w-full">
         <div className="w-full max-w-screen-md mx-auto space-y-5">
           <div className="">
-            <Label className="text-sm">Featured image</Label>
+            <Label className="text-sm">
+              {T.pageSubmission["Featured image"]}
+            </Label>
             <ButtonInsertImage
               defaultImage={featuredImage}
               onChangeImage={handleChangeFeaturedImage}
@@ -327,8 +333,8 @@ const CreateNewPostEditor: FC<Props> = ({
                 disabled={LOADING}
               >
                 {!!postOptionsData.timeSchedulePublication
-                  ? "Schedule"
-                  : "Publish"}
+                  ? T.pageSubmission["Schedule"]
+                  : T.pageSubmission["Publish"]}
               </ButtonPrimary>
               <Button
                 fontSize="text-base font-medium"
@@ -337,7 +343,9 @@ const CreateNewPostEditor: FC<Props> = ({
                 disabled={LOADING}
                 pattern="third"
               >
-                {isEditingPage ? "Move to draft" : "Save draft"}
+                {isEditingPage
+                  ? T.pageSubmission["Move to draft"]
+                  : T.pageSubmission["Save draft"]}
               </Button>
               <PostOptionsBtn
                 defaultData={postOptionsData}
@@ -355,19 +363,27 @@ const CreateNewPostEditor: FC<Props> = ({
           renderContent={() => (
             <div className="py-5">
               <div className="font-medium">
-                Congratulations! You have successfully updated the post!
+                {
+                  T.pageSubmission[
+                    "Congratulations! You have successfully updated the post!"
+                  ]
+                }
               </div>
               <div className="text-sm text-neutral-700 mt-2.5">
-                These changes will be applied to the post in about 15 minutes.{" "}
+                {
+                  T.pageSubmission[
+                    "These changes will be applied to the post in about 15 minutes."
+                  ]
+                }{" "}
                 <br />
-                You can{" "}
+                {T.pageSubmission["You can"]}{" "}
                 <Link
                   href={`/preview${newUpdatedUri}&preview=true&previewPathname=post`}
                   className="font-medium underline"
                 >
-                  preview the post
+                  {T.pageSubmission["preview the post"]}
                 </Link>{" "}
-                by clicking the button below.
+                {T.pageSubmission["by clicking the button below."]}
               </div>
             </div>
           )}
@@ -382,7 +398,7 @@ const CreateNewPostEditor: FC<Props> = ({
                   setNewUpdatedUri("");
                 }}
               >
-                Preview post
+                {T.pageSubmission["Preview post"]}
               </ButtonPrimary>
             </div>
           )}

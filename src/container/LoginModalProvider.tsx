@@ -1,3 +1,4 @@
+"use client";
 import NcModal from "@/components/NcModal/NcModal";
 import React, {
   FC,
@@ -19,6 +20,7 @@ import { useLogin } from "@faustwp/core";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
+import getTrans from "@/utils/getTrans";
 
 const LoginModalContext = createContext<{
   isLoginModalOpen: boolean;
@@ -43,6 +45,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
   const router = useRouter();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
+  const T = getTrans();
   useEffect(() => {
     if (!!data?.generateAuthorizationCode.error) {
       toast.error(data?.generateAuthorizationCode.error, {
@@ -86,7 +89,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
           <Logo className="block w-full text-center" imageClassName="mx-auto" />
           <div className="text-center">
             <h2 className="mt-5 sm:mt-7 text-center text-xl md:text-2xl font-semibold leading-9 tracking-tight text-neutral-900 dark:text-neutral-200">
-              Sign in to your account
+              {T["Sign in to your account"]}
             </h2>
             {IS_CHISNGHIAX_DEMO_SITE && (
               <span className="text-xs text-neutral-500 dark:text-neutral-400">
@@ -120,7 +123,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
             >
               <div className="grid gap-4">
                 <div className="grid gap-1.5">
-                  <Label htmlFor="email">Username</Label>
+                  <Label htmlFor="email">{T.Username}</Label>
                   <Input
                     id="username"
                     name="username"
@@ -134,7 +137,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
                   />
                 </div>
                 <div className="grid gap-1.5">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">{T.Password}</Label>
                   <Input
                     id="password"
                     type="password"
@@ -143,7 +146,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
                   />
                 </div>
                 <div className="grid">
-                  <ButtonPrimary loading={loading}>Sign in</ButtonPrimary>
+                  <ButtonPrimary loading={loading}>{T.Login}</ButtonPrimary>
                   {!!errorMessage && (
                     <Error className="text-center mt-2" error={errorMessage} />
                   )}
@@ -153,13 +156,13 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
           </div>
 
           <p className="mt-5 sm:mt-10 text-center text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-            Not a member?{" "}
+            {T["Not a member?"]}?{" "}
             <Link
               href="/sign-up"
               className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 hover:underline underline-offset-2"
               onClick={closeModal}
             >
-              Sign up!
+              {T["Sign up"]}!
             </Link>
             <span className="mx-1">|</span>
             <a
@@ -172,7 +175,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
               className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 hover:underline underline-offset-2"
               onClick={handleClickLostPassword}
             >
-              Lost your password?
+              {T["Lost your password?"]}
             </a>
           </p>
         </div>

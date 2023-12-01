@@ -1,5 +1,3 @@
-"use client";
-
 import { useQuery } from "@apollo/client";
 import { getApolloAuthClient, useAuth } from "@faustwp/core";
 import { ReactNode, useEffect, useState } from "react";
@@ -16,6 +14,7 @@ import ControlSettingsDemo from "./ControlSettingsDemo";
 import CookiestBoxPopover from "@/components/CookiestBoxPopover";
 import errorHandling from "@/utils/errorHandling";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
+import { initLocalPostsSavedListFromLocalstored } from "@/stores/localPostSavedList/localPostsSavedListSlice";
 
 export function SiteWrapperChild({
   children,
@@ -61,6 +60,17 @@ export function SiteWrapperChild({
     const generalSettings =
       props?.__TEMPLATE_QUERY_DATA__?.generalSettings ?? {};
     dispatch(updateGeneralSettings(generalSettings));
+  }, []);
+
+  useEffect(() => {
+    const initialStateLocalSavedPosts: number[] = JSON.parse(
+      typeof window !== "undefined"
+        ? localStorage?.getItem("localSavedPosts") || "[]"
+        : "[]"
+    );
+    dispatch(
+      initLocalPostsSavedListFromLocalstored(initialStateLocalSavedPosts)
+    );
   }, []);
 
   // update updateAuthorizedUser to store

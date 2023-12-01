@@ -21,6 +21,7 @@ export default class Document extends NextDocument {
       <Html
         lang="en"
         className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]"
+        dir={process.env.NEXT_PUBLIC_SITE_DIRECTION}
       >
         <Head>
           <link
@@ -76,6 +77,19 @@ export default class Document extends NextDocument {
                       document.documentElement.classList.add('dark')
                     } else {
                       document.documentElement.classList.remove('dark')
+                    }
+                  } catch (_) {}
+                `,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                  try {
+                    if (localStorage.dismiss_top_banner === 'true' ) {
+                      document.documentElement.classList.add('dismiss_top_banner')
+                    } else {
+                      document.documentElement.classList.remove('dismiss_top_banner')
                     }
                   } catch (_) {}
                 `,

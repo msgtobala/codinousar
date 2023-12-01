@@ -1,6 +1,9 @@
+import getTrans from "@/utils/getTrans";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC, useEffect, useState } from "react";
+
+const T = getTrans();
 
 const TABS: {
   tab: TabProps["currentTab"];
@@ -9,7 +12,7 @@ const TABS: {
 }[] = [
   {
     tab: "",
-    label: "Articles",
+    label: T.Articles,
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7  "
@@ -56,7 +59,7 @@ const TABS: {
   },
   {
     tab: "favorites",
-    label: "Favorites list",
+    label: T["Favorites list"],
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7  "
@@ -85,7 +88,7 @@ const TABS: {
   },
   {
     tab: "bookmarks",
-    label: "Bookmarks",
+    label: T.Bookmarks,
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7  "

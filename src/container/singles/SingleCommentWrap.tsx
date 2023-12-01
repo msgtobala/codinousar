@@ -28,6 +28,7 @@ import {
 } from "@/__generated__/graphql";
 import errorHandling from "@/utils/errorHandling";
 import GraphqlError from "@/components/GraphqlError";
+import getTrans from "@/utils/getTrans";
 
 export const CommentWrapContext = createContext<{
   isReplyingDatabaseId?: number | null;
@@ -49,6 +50,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
   commentCount: commentCountProp,
 }) => {
   const endOfNodeCommentListRef = useRef<HTMLDivElement>(null);
+  const T = getTrans();
   //
   const client = getApolloAuthClient();
   const { isReady, isAuthenticated } = useSelector(
@@ -298,11 +300,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
   // handle update a comment
   useEffect(() => {
-    if (
-      !updateCommentByIdResult.called ||
-      !isOpenEditModalWithId ||
-      !isEditingDatabaseId
-    ) {
+    if (!updateCommentByIdResult.called || !isEditingDatabaseId) {
       return;
     }
 
@@ -328,6 +326,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
       toast.success("Update comment successfully");
       const newUpdated = updateCommentByIdResult.data?.updateComment
         ?.comment as TCommentHasChild;
+
       if (
         !listCommentUpdated.some((c) => c.databaseId === newUpdated.databaseId)
       ) {
@@ -338,6 +337,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
             c.databaseId === newUpdated.databaseId ? newUpdated : c
           )
         );
+        console.log(111, { listCommentUpdated, newUpdated });
       }
 
       setIsEditingDatabaseId(null);
@@ -375,7 +375,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
   const handleSubmitCommentForm = (data: string) => {
     if (!isAuthenticated || !viewer?.databaseId) {
-      toast.error("You must login to comment");
+      toast.error(T.pageSingle["You must login to comment"]);
       return;
     }
 
@@ -392,7 +392,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     data: string;
   }) => {
     if (!isAuthenticated || !viewer?.databaseId) {
-      toast.error("You must login to comment");
+      toast.error(T.pageSingle["You must login to comment"]);
       return;
     }
     data.comment.parentDatabaseId &&
@@ -519,7 +519,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
             id="nc-single-comment"
             className="text-lg xl:text-xl font-semibold text-neutral-800 dark:text-neutral-200"
           >
-            Responses ({commentCount} )
+            {T.pageSingle.Responses} ({commentCount} )
           </h3>
           <SingleCommentForm
             isSuccessfulCreatedComment={

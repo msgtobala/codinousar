@@ -3,6 +3,7 @@ import { NcmazFcUserFullFieldsFragment } from "@/__generated__/graphql";
 import Avatar from "@/components/Avatar/Avatar";
 import { NC_USER_FULL_FIELDS_FRAGMENT } from "@/fragments";
 import { getImageDataFromImageFragment } from "@/utils/getImageDataFromImageFragment";
+import getTrans from "@/utils/getTrans";
 import { getUserDataFromUserCardFragment } from "@/utils/getUserDataFromUserCardFragment";
 import Link from "next/link";
 import React, { FC } from "react";
@@ -17,6 +18,8 @@ const SingleAuthor: FC<SingleAuthorProps> = ({ author: authorProp }) => {
   const author = getUserDataFromUserCardFragment(
     authorProp as FragmentType<typeof NC_USER_FULL_FIELDS_FRAGMENT>
   );
+
+  const T = getTrans();
   return (
     <div className="nc-SingleAuthor flex">
       <Link href={author?.uri || ""}>
@@ -33,7 +36,7 @@ const SingleAuthor: FC<SingleAuthorProps> = ({ author: authorProp }) => {
       </Link>
       <div className="flex flex-col ms-3 max-w-lg sm:ms-5">
         <span className="text-xs text-neutral-400 uppercase tracking-wider">
-          WRITTEN BY
+          {T.pageSingle["WRITTEN BY"]}
         </span>
         <h2 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-neutral-200">
           <Link href={author?.uri || ""}>{author?.name}</Link>

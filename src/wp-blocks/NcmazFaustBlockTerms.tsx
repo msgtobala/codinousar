@@ -28,7 +28,7 @@ const NcmazFaustBlockTerms: WordPressBlock<
   const { blockVariation, hasBackground } = props.attributes || {};
 
   const renderLayoutType = () => {
-    if (!props.renderedHtml) {
+    if (!props.renderedHtml || typeof window === "undefined") {
       return null;
     }
 
@@ -142,6 +142,7 @@ const NcmazFaustBlockTerms: WordPressBlock<
 
   return (
     <div className={`relative not-prose ${hasBackground ? "py-16" : ""}`}>
+      <div dangerouslySetInnerHTML={{ __html: props.renderedHtml || "" }}></div>
       {hasBackground ? <BackgroundSection /> : null}
       {renderLayoutType()}
     </div>

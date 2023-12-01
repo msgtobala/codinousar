@@ -7,6 +7,7 @@ import ButtonPrimary from "../Button/ButtonPrimary";
 import { Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { NC_SITE_SETTINGS } from "@/contains/site-settings";
+import getTrans from "@/utils/getTrans";
 
 const MAX_TAGS_LENGTH =
   NC_SITE_SETTINGS["submissions-settings"].max_categories_allowed || 5;
@@ -17,6 +18,8 @@ interface Props {
 }
 
 const CategoriesInput: FC<Props> = ({ onChange, defaultValue }) => {
+  const T = getTrans();
+
   const [queryGetCategories, { loading, error, data, fetchMore, called }] =
     useLazyQuery(QUERY_GET_CATEGORIES, {
       notifyOnNetworkStatusChange: true,
@@ -148,7 +151,7 @@ const CategoriesInput: FC<Props> = ({ onChange, defaultValue }) => {
               <button
                 className="ms-1 px-1 text-base flex items-center justify-center hover:text-neutral-900 dark:hover:text-neutral-50"
                 onClick={() => handleRemoveTag(cat)}
-                title="Remove category"
+                title={T.pageSubmission["Remove category"]}
               >
                 <XMarkIcon className="w-4 h-4" />
               </button>
@@ -165,7 +168,7 @@ const CategoriesInput: FC<Props> = ({ onChange, defaultValue }) => {
               type="button"
               disabled={isMax}
             >
-              {`Add categories (${categories.length}/${MAX_TAGS_LENGTH})`}
+              {`${T.pageSubmission["Add categories"]} (${categories.length}/${MAX_TAGS_LENGTH})`}
             </button>
           </li>
         </ul>
@@ -174,7 +177,9 @@ const CategoriesInput: FC<Props> = ({ onChange, defaultValue }) => {
             ref={containerRef}
             className="absolute top-full space-y-5 mt-4 inset-x-0 p-5 bg-white dark:bg-neutral-800 shadow-lg rounded-2xl z-50 ring-1 ring-black/[0.03]"
           >
-            <h3 className="text-xl font-semibold">Categories</h3>
+            <h3 className="text-xl font-semibold">
+              {T.pageSubmission.Categories}
+            </h3>
             <div className="w-full border-b border-neutral-300 dark:border-neutral-700" />
             {!!error && <p className="text-red-500">{error.message}</p>}
             {!!loading && !categoriesData.length && <Loading />}
@@ -215,7 +220,7 @@ const CategoriesInput: FC<Props> = ({ onChange, defaultValue }) => {
                     loading={loading}
                     onClick={handleClickShowMore}
                   >
-                    Load more categories
+                    {T.pageSubmission["Load more categories"]}
                   </ButtonPrimary>
                 </div>
               </>

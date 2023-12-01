@@ -18,6 +18,7 @@ import PageLayout from "@/container/PageLayout";
 import errorHandling from "@/utils/errorHandling";
 import { TCategoryCardFull } from "@/components/CardCategory1/CardCategory1";
 import SearchPageLayout from "@/container/SearchPageLayout";
+import getTrans from "@/utils/getTrans";
 
 const Page: FaustPage<SearchPageQueryGetUsersBySearchQuery> = (props) => {
   const router = useRouter();
@@ -26,6 +27,7 @@ const Page: FaustPage<SearchPageQueryGetUsersBySearchQuery> = (props) => {
   const _top10Categories =
     (props.data?.categories?.nodes as TCategoryCardFull[]) || [];
   const search = router.query.search?.[0] || "";
+  const T = getTrans();
 
   const [getUsersBySearch, getUsersBySearchResult] = useLazyQuery(
     gql(` 
@@ -144,7 +146,7 @@ const Page: FaustPage<SearchPageQueryGetUsersBySearchQuery> = (props) => {
               loading={loading}
               onClick={handleClickShowMore}
             >
-              Show me more
+              {T["Show me more"]}
             </ButtonPrimary>
           </div>
         ) : null}

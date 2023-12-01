@@ -1,5 +1,3 @@
-"use client";
-
 import React, { FC } from "react";
 import ButtonPlayMusicPlayer from "@/components/ButtonPlayMusicPlayer";
 import { SingleType1Props } from "../single/single";

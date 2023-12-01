@@ -11,5 +11,6 @@ export default function Page404() {
 export const getStaticProps = () => {
   return {
     props: {},
+    revalidate: 900,
   };
 };

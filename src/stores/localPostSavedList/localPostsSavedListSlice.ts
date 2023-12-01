@@ -3,18 +3,30 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface LocalPostsSavedListState {
   localSavedPosts: number[];
-  viewerUnSavedPosts: number[];
 }
 
 const initialState: LocalPostsSavedListState = {
   localSavedPosts: [],
-  viewerUnSavedPosts: [],
 };
 
 export const localPostsSavedListSlice = createSlice({
   name: "localPostsSavedList",
   initialState,
   reducers: {
+    initLocalPostsSavedListFromLocalstored: (
+      state,
+      action: PayloadAction<number[]>
+    ) => {
+      state.localSavedPosts = action.payload;
+      if (typeof window !== "undefined") {
+        localStorage?.setItem(
+          "localSavedPosts",
+          JSON.stringify(state.localSavedPosts)
+        );
+      }
+
+      return state;
+    },
     updateLocalPostsSavedList: (state, action: PayloadAction<number>) => {
       if (state.localSavedPosts.includes(action.payload)) {
         state.localSavedPosts = state.localSavedPosts.filter(
@@ -23,16 +35,13 @@ export const localPostsSavedListSlice = createSlice({
       } else {
         state.localSavedPosts.push(action.payload);
       }
-      return state;
-    },
-    addViewerUnSavedPostsList: (state, action: PayloadAction<number>) => {
-      if (!state.viewerUnSavedPosts.includes(action.payload)) {
-        state.viewerUnSavedPosts.push(action.payload);
+      if (typeof window !== "undefined") {
+        localStorage?.setItem(
+          "localSavedPosts",
+          JSON.stringify(state.localSavedPosts)
+        );
       }
-      return state;
-    },
-    removeAllViewerUnSavedPostsList: (state) => {
-      state.viewerUnSavedPosts = [];
+
       return state;
     },
   },
@@ -41,8 +50,7 @@ export const localPostsSavedListSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {
   updateLocalPostsSavedList,
-  // addViewerUnSavedPostsList,
-  // removeAllViewerUnSavedPostsList,
+  initLocalPostsSavedListFromLocalstored,
 } = localPostsSavedListSlice.actions;
 
 export default localPostsSavedListSlice.reducer;

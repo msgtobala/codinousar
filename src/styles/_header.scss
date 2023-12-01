@@ -15,3 +15,9 @@
     @apply visible;
   }
 }
+
+html.dismiss_top_banner {
+  .Ncmaz_Banner {
+    @apply hidden;
+  }
+}

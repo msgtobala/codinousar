@@ -6,6 +6,7 @@ import { NC_SITE_SETTINGS } from '@/contains/site-settings';
 import { RootState } from '@/stores/store';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import getTrans from '@/utils/getTrans';
 
 interface Props {
   className?: string;
@@ -16,9 +17,11 @@ const CreateBtn: FC<Props> = ({ className = 'hidden md:block ' }) => {
     (state: RootState) => state.viewer
   );
   const { isAuthenticated, isReady } = authorizedUser;
+
+  const { openLoginModal } = useLoginModal();
+  const T = getTrans();
   const userRole = viewer?.roles?.edges[0].node.name ?? undefined;
   const canEdit = userRole?.toLocaleLowerCase() !== 'subscriber';
-  const { openLoginModal } = useLoginModal();
 
   if (
     NC_SITE_SETTINGS['submissions-settings'].enable === false ||
@@ -38,7 +41,7 @@ const CreateBtn: FC<Props> = ({ className = 'hidden md:block ' }) => {
           if (!isAuthenticated) {
             e.preventDefault();
             if (!isReady) {
-              toast.error('Please wait a moment, data is being prepared.');
+              toast.error(T['Please wait a moment, data is being prepared.']);
               return;
             }
             openLoginModal();
@@ -46,7 +49,7 @@ const CreateBtn: FC<Props> = ({ className = 'hidden md:block ' }) => {
         }}
       >
         <PlusIcon className="w-5 h-5 -ms-1" />
-        <span className="ms-2">Create</span>
+        <span className="ms-2">{T.Create}</span>
       </Link>
     </div>
   );

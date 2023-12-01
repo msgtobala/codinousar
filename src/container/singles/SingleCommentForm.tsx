@@ -6,6 +6,7 @@ import { CommentWrapContext } from "./SingleCommentWrap";
 import { useLoginModal } from "../LoginModalProvider";
 import { useSelector } from "react-redux";
 import { RootState } from "@/stores/store";
+import getTrans from "@/utils/getTrans";
 
 export interface SingleCommentFormProps {
   className?: string;
@@ -31,6 +32,7 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
   isSuccessfulCreatedComment,
 }) => {
   const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+  const T = getTrans();
   //
   const { isLoginModalOpen, openLoginModal } = useLoginModal();
   const { isReady, isAuthenticated } = useSelector(
@@ -103,7 +105,7 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
       className={`nc-SingleCommentForm ${className}`}
     >
       <Textarea
-        placeholder="Add to discussion"
+        placeholder={T.pageSingle["Add to discussion"]}
         ref={textareaRef}
         required={true}
         defaultValue={defaultValue}
@@ -116,7 +118,7 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
           loading={isLoading}
           type="submit"
         >
-          Submit
+          {T.Submit}
         </ButtonPrimary>
         <Button
           type="button"
@@ -129,7 +131,7 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
             }
           }}
         >
-          Cancel
+          {T.Cancel}
         </Button>
       </div>
     </form>

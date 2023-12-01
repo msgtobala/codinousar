@@ -1,43 +1,50 @@
-import React, { FC, Fragment, useEffect, useState } from 'react';
+"use client";
+import React, { FC, Fragment, useEffect, useState } from "react";
 import {
-  CheckBadgeIcon,
+  ShoppingBagIcon as ShoppingCartIcon,
   Cog8ToothIcon as CogIcon,
-} from '@heroicons/react/24/outline';
-import { Popover, Transition } from '@headlessui/react';
-import SwitchDarkMode2 from '@/components/SwitchDarkMode/SwitchDarkMode2';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+} from "@heroicons/react/24/outline";
+import { Popover, Transition } from "@headlessui/react";
+import SwitchDarkMode2 from "@/components/SwitchDarkMode/SwitchDarkMode2";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const ControlSettingsDemo = () => {
   // FOR OUR DEMO PAGE, use do not use this, you can delete it.
-  const [themeDir, setThemeDIr] = useState<'rtl' | 'ltr'>('ltr');
+  const [themeDir, setThemeDIr] = useState<"rtl" | "ltr">(
+    process.env.NEXT_PUBLIC_SITE_DIRECTION as "rtl" | "ltr"
+  );
 
   const router = useRouter();
 
   useEffect(() => {
-    if (themeDir === 'rtl') {
-      document.querySelector('html')?.setAttribute('dir', 'rtl');
+    if (themeDir === "rtl") {
+      document.querySelector("html")?.setAttribute("dir", "rtl");
     } else {
-      document.querySelector('html')?.removeAttribute('dir');
+      document.querySelector("html")?.removeAttribute("dir");
     }
     return () => {
-      document.querySelector('html')?.removeAttribute('dir');
+      document.querySelector("html")?.removeAttribute("dir");
     };
   }, [themeDir]);
+
+  if (process.env.NEXT_PUBLIC_SITE_GEAR_ICON !== "true") {
+    return null;
+  }
 
   const renderRadioThemeDir = () => {
     return (
       <div>
         <span className="text-sm font-medium">Theme dir</span>
         <div className="mt-1.5 flex items-center space-x-2 rtl:space-x-reverse">
-          {(['rtl', 'ltr'] as ('rtl' | 'ltr')[]).map((dir) => {
+          {(["rtl", "ltr"] as ("rtl" | "ltr")[]).map((dir) => {
             return (
               <div
                 key={dir}
                 className={`py-1.5 px-3.5 flex items-center rounded-full font-medium text-xs cursor-pointer select-none uppercase ${
                   themeDir === dir
-                    ? 'bg-black dark:bg-neutral-200 text-white dark:text-black shadow-black/10 shadow-lg'
-                    : 'border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500'
+                    ? "bg-black dark:bg-neutral-200 text-white dark:text-black shadow-black/10 shadow-lg"
+                    : "border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500"
                 }`}
                 onClick={() => setThemeDIr(dir)}
               >
@@ -59,7 +66,7 @@ const ControlSettingsDemo = () => {
               <>
                 <Popover.Button
                   className={`p-2.5 bg-white hover:bg-neutral-100 dark:bg-primary-600 dark:hover:bg-primary-700 rounded-xl shadow-xl border border-neutral-200 dark:border-primary-600 z-10 focus:outline-none ${
-                    open ? ' focus:ring-2 ring-primary-500' : ''
+                    open ? " focus:ring-2 ring-primary-500" : ""
                   }`}
                 >
                   <CogIcon className="w-8 h-8" />

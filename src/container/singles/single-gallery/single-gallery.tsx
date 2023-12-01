@@ -1,5 +1,3 @@
-"use client";
-
 import React, { FC, useState } from "react";
 import { Suspense } from "react";
 import { SingleType1Props } from "../single/single";

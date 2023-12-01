@@ -1,5 +1,6 @@
-import { Fragment, useState } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+"use client";
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   FolderIcon,
@@ -7,21 +8,21 @@ import {
   PowerIcon,
   UserCircleIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline';
+} from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
-} from '@heroicons/react/20/solid';
-import Logo from '@/components/Logo/Logo';
-import LangDropdown from '@/components/Header/LangDropdown';
-import SwitchDarkMode from '@/components/SwitchDarkMode/SwitchDarkMode';
-import AvatarDropdown from '@/components/Header/AvatarDropdown';
-import classNames from '@/utils/classNames';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useLogout } from '@faustwp/core';
-import CreateBtn from '@/components/Header/CreateBtn';
-import { NC_SITE_SETTINGS } from '@/contains/site-settings';
+} from "@heroicons/react/20/solid";
+import Logo from "@/components/Logo/Logo";
+import LangDropdown from "@/components/Header/LangDropdown";
+import SwitchDarkMode from "@/components/SwitchDarkMode/SwitchDarkMode";
+import AvatarDropdown from "@/components/Header/AvatarDropdown";
+import classNames from "@/utils/classNames";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useLogout } from "@faustwp/core";
+import CreateBtn from "@/components/Header/CreateBtn";
+import { NC_SITE_SETTINGS } from "@/contains/site-settings";
 import { useSelector } from 'react-redux';
 import { RootState } from '@/stores/store';
 
@@ -29,54 +30,55 @@ interface NavigationItem {
   name:
     | TDashBoardPostTab
     | TDashBoardEditProfileTab
-    | 'posts'
-    | 'edit profile'
-    | 'documents';
+    | "posts"
+    | "edit profile"
+    | "documents";
   href: string;
   icon?: any;
   children?: NavigationItem[];
 }
 
 export type TDashBoardPostTab =
-  | 'published'
-  | 'pending'
-  | 'schedule'
-  | 'draft'
-  | 'trash';
+  | "published"
+  | "pending"
+  | "schedule"
+  | "draft"
+  | "trash";
 
 export type TDashBoardEditProfileTab =
-  | 'general'
-  | 'profile'
-  | 'password'
-  | 'socials';
+  | "general"
+  | "profile"
+  | "password"
+  | "socials";
 
 const navigation: NavigationItem[] = [
   {
-    name: 'posts',
-    href: '/dashboard/posts/published',
+    name: "posts",
+    href: "/dashboard/posts/published",
     icon: FolderIcon,
     children: [
-      { name: 'published', href: '/dashboard/posts/published' },
-      { name: 'pending', href: '/dashboard/posts/pending' },
-      { name: 'schedule', href: '/dashboard/posts/schedule' },
-      { name: 'draft', href: '/dashboard/posts/draft' },
-      { name: 'trash', href: '/dashboard/posts/trash' },
+      { name: "published", href: "/dashboard/posts/published" },
+      { name: "pending", href: "/dashboard/posts/pending" },
+      { name: "schedule", href: "/dashboard/posts/schedule" },
+      { name: "draft", href: "/dashboard/posts/draft" },
+      { name: "trash", href: "/dashboard/posts/trash" },
     ],
   },
+
   {
-    name: 'edit profile',
-    href: '/dashboard/edit-profile/general',
+    name: "edit profile",
+    href: "/dashboard/edit-profile/general",
     icon: UserCircleIcon,
     children: [
-      { name: 'general', href: '/dashboard/edit-profile/general' },
-      { name: 'profile', href: '/dashboard/edit-profile/profile' },
-      { name: 'password', href: '/dashboard/edit-profile/password' },
-      { name: 'socials', href: '/dashboard/edit-profile/socials' },
+      { name: "general", href: "/dashboard/edit-profile/general" },
+      { name: "profile", href: "/dashboard/edit-profile/profile" },
+      { name: "password", href: "/dashboard/edit-profile/password" },
+      { name: "socials", href: "/dashboard/edit-profile/socials" },
     ],
   },
   {
-    name: 'documents',
-    href: NC_SITE_SETTINGS.document_page.uri || '',
+    name: "documents",
+    href: NC_SITE_SETTINGS.document_page.uri || "",
     icon: LightBulbIcon,
   },
 ];
@@ -88,13 +90,13 @@ interface Props {
 export default function DashboardLayout({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
-  const currentTab = router.query.tab || 'published';
+  const currentTab = router.query.tab || "published";
   const { logout } = useLogout();
   const { viewer } = useSelector((state: RootState) => state.viewer);
   const userRole = viewer?.roles?.edges[0].node.name ?? undefined;
   const canEdit =
     userRole !== undefined && userRole.toLocaleLowerCase() !== 'subscriber';
-  var filteredNavigation = navigation.filter((_, i) => i !== 0);
+  const filteredNavigation = navigation.filter((_, i) => i !== 0);
 
   const renderItem = (item: NavigationItem) => {
     const isCurrent = item.name === currentTab;
@@ -104,17 +106,17 @@ export default function DashboardLayout({ children }: Props) {
           href={item.href}
           className={classNames(
             isCurrent
-              ? 'bg-neutral-100 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-200'
-              : 'text-neutral-500 dark:text-neutral-300 hover:text-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:hover:text-neutral-300',
-            'group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-medium capitalize'
+              ? "bg-neutral-100 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-200"
+              : "text-neutral-500 dark:text-neutral-300 hover:text-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:hover:text-neutral-300",
+            "group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-medium capitalize"
           )}
         >
           <item.icon
             className={classNames(
               isCurrent
-                ? 'text-primary-600 dark:text-neutral-100'
-                : 'text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-neutral-200',
-              'h-6 w-6 shrink-0'
+                ? "text-primary-600 dark:text-neutral-100"
+                : "text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-neutral-200",
+              "h-6 w-6 shrink-0"
             )}
             aria-hidden="true"
           />
@@ -125,9 +127,9 @@ export default function DashboardLayout({ children }: Props) {
             <ChevronDownIcon
               className={classNames(
                 isCurrent
-                  ? 'text-primary-600 dark:text-neutral-100'
-                  : 'text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-neutral-200',
-                'ms-auto h-5 w-5 group-hover:text-primary-600'
+                  ? "text-primary-600 dark:text-neutral-100"
+                  : "text-neutral-400 group-hover:text-primary-600 dark:group-hover:text-neutral-200",
+                "ms-auto h-5 w-5 group-hover:text-primary-600"
               )}
               aria-hidden="true"
             />
@@ -148,9 +150,9 @@ export default function DashboardLayout({ children }: Props) {
                     href={child.href}
                     className={classNames(
                       isCurrent
-                        ? 'bg-neutral-50 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-200'
-                        : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:hover:text-neutral-300',
-                      'group flex gap-x-3 rounded-md p-2.5 ps-4 text-sm leading-6 font-medium capitalize'
+                        ? "bg-neutral-50 text-neutral-900 dark:bg-neutral-700 dark:text-neutral-200"
+                        : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:hover:text-neutral-300",
+                      "group flex gap-x-3 rounded-md p-2.5 ps-4 text-sm leading-6 font-medium capitalize"
                     )}
                   >
                     {child.name}
@@ -172,7 +174,7 @@ export default function DashboardLayout({ children }: Props) {
         </div>
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
-            {!canEdit && (
+            {canEdit && (
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
                   {filteredNavigation.map(renderItem)}

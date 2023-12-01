@@ -15,11 +15,13 @@ import { getTagDataFromTagFragment } from "@/utils/getTagDataFromTagFragment";
 import { NC_TAG_SHORT_FIELDS_FRAGMENT } from "@/fragments";
 import errorHandling from "@/utils/errorHandling";
 import GraphqlError from "./GraphqlError";
+import getTrans from "@/utils/getTrans";
 
 export interface ModalTagsProps {}
 
 const ModalTags: FC<ModalTagsProps> = ({}) => {
   const [refetchTimes, setRefetchTimes] = React.useState(0);
+  const T = getTrans();
 
   const [queryGetTags, { loading, error, data, fetchMore, refetch }] =
     useLazyQuery(QUERY_GET_TAGS, {
@@ -114,7 +116,7 @@ const ModalTags: FC<ModalTagsProps> = ({}) => {
         {data?.tags?.pageInfo.hasNextPage ? (
           <div className="mt-7 flex justify-center">
             <ButtonPrimary loading={loading} onClick={handleClickShowMore}>
-              Show me more
+              {T["Show me more"]}
             </ButtonPrimary>
           </div>
         ) : null}
@@ -172,7 +174,8 @@ const ModalTags: FC<ModalTagsProps> = ({}) => {
             </svg>
 
             <div>
-              <span className="hidden sm:inline">Other</span> Tags
+              <span className="hidden sm:inline">{T["Other tags"]}</span>
+              <span className="inline sm:hidden">{T.Tags}</span>
             </div>
             <ChevronDownIcon
               className="w-4 h-4 ms-2 -me-1"
@@ -180,7 +183,7 @@ const ModalTags: FC<ModalTagsProps> = ({}) => {
             />
           </Button>
         )}
-        modalTitle="Discover other tags"
+        modalTitle={T["Discover other tags"]}
         renderContent={renderModalContent}
       />
     </div>

@@ -1,3 +1,4 @@
+import getTrans from "@/utils/getTrans";
 import Link from "next/link";
 import React, { FC, useEffect, useState } from "react";
 
@@ -6,6 +7,7 @@ interface TabProps {
   search: string;
 }
 
+const T = getTrans();
 const TABS: {
   tab: TabProps["currentTab"];
   label: string;
@@ -13,7 +15,7 @@ const TABS: {
 }[] = [
   {
     tab: "posts",
-    label: "Articles",
+    label: T["Articles"],
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7"
@@ -57,7 +59,7 @@ const TABS: {
   },
   {
     tab: "categories",
-    label: "Categories",
+    label: T["Categories"],
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7"
@@ -104,7 +106,7 @@ const TABS: {
   },
   {
     tab: "authors",
-    label: "Authors",
+    label: T["Authors"],
     svgIcon: (
       <svg
         className="mb-2.5 w-7 h-7"

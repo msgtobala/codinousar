@@ -1,20 +1,24 @@
 import { NC_SITE_SETTINGS } from "@/contains/site-settings";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Banner() {
   const { description, enable, end_link } = NC_SITE_SETTINGS.top_banner;
 
-  const [show, setshow] = useState(
-    localStorage.dismiss_top_banner ? false : true
-  );
+  // const [show, setshow] = useState(false);
 
-  if (!enable || !show) {
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     setshow(!localStorage.dismiss_top_banner);
+  //   }
+  // }, []);
+
+  if (!enable) {
     return null;
   }
 
   return (
-    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div className="Ncmaz_Banner relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
       <div
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
         aria-hidden="true"
@@ -55,8 +59,9 @@ export default function Banner() {
           type="button"
           className="-m-3 p-3 focus-visible:outline-offset-[-4px]"
           onClick={() => {
-            setshow(false);
-            localStorage.dismiss_top_banner = true;
+            // setshow(false);
+            localStorage.dismiss_top_banner = "true";
+            document.documentElement.classList.add("dismiss_top_banner");
           }}
         >
           <span className="sr-only">Dismiss</span>
