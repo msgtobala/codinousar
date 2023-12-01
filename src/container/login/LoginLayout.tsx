@@ -58,9 +58,12 @@ const LoginLayout: FC<Props> = ({
       </div>
       <div className="pt-12 pb-8 sm:py-8 lg:p-8">
         <div className="mx-auto flex w-full flex-col justify-center space-y-8 sm:space-y-10 sm:w-96">
-          <div className="flex flex-col space-y-2 text-center">
+          <div className="flex flex-col text-center">
+            <div className="relative z-20 flex lg:hidden items-center justify-center pb-10 text-lg font-medium">
+              <Logo />
+            </div>
             <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
-            <p className="text-sm text-muted-foreground">{subTitle}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{subTitle}</p>
           </div>
 
           {children}

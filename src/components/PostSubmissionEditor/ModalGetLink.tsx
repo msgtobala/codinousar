@@ -4,6 +4,7 @@ import ButtonThird from "@/components/Button/ButtonThird";
 import Input from "@/components/Input/Input";
 import Label from "@/components/Label/Label";
 import NcModal from "@/components/NcModal/NcModal";
+import getTrans from "@/utils/getTrans";
 import React, { FC, useEffect, useRef, useState } from "react";
 
 interface ModalGetLinkProps {
@@ -21,6 +22,7 @@ const ModalGetLink: FC<ModalGetLinkProps> = ({
 }) => {
   const initialFocusRef = useRef(null);
 
+  const T = getTrans();
   const [urlState, setUrlState] = useState("");
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const ModalGetLink: FC<ModalGetLinkProps> = ({
         </div>
         <div className="p-5 bg-neutral-50 dark:bg-neutral-900 dark:border-t dark:border-neutral-800 flex items-center justify-between">
           <ButtonThird onClick={closeModal} sizeClass="px-4 py-2 sm:px-5">
-            Cancel
+            {T.Cancel}
           </ButtonThird>
           <div>
             <ButtonSecondary
@@ -57,14 +59,14 @@ const ModalGetLink: FC<ModalGetLinkProps> = ({
               onClick={handleRemoveLink}
               sizeClass="px-4 py-2 sm:px-5"
             >
-              Unset link
+              {T.pageSubmission["Unset link"]}
             </ButtonSecondary>
             <ButtonPrimary
               className="ml-2"
               onClick={handleApply}
               sizeClass="px-4 py-2 sm:px-5"
             >
-              Apply
+              {T.Apply}
             </ButtonPrimary>
           </div>
         </div>

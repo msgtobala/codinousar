@@ -3,9 +3,9 @@
 import React, { FC } from "react";
 import Button, { ButtonProps } from "./Button";
 
-export interface Props extends ButtonProps {}
+export interface ButtonPrimaryProps extends ButtonProps {}
 
-const ButtonPrimary: FC<Props> = (props) => {
+const ButtonPrimary: FC<ButtonPrimaryProps> = (props) => {
   return <Button {...props} pattern="primary" />;
 };
 

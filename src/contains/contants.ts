@@ -2,6 +2,7 @@ import {
   OrderEnum,
   PostObjectsConnectionOrderbyEnum,
 } from "@/__generated__/graphql";
+import getTrans from "@/utils/getTrans";
 
 const avatarColors = [
   "#ffdd00",
@@ -32,17 +33,19 @@ const avatarColors = [
   "#E208A7",
 ];
 
+const T = getTrans();
+
 export const FILTERS_OPTIONS: {
   name: string;
   value: `${PostObjectsConnectionOrderbyEnum}/${OrderEnum}`;
 }[] = [
-  { name: "Newtest to oldest", value: "DATE/DESC" },
-  { name: "Oldest to newest", value: "DATE/ASC" },
-  { name: "A to Z", value: "TITLE/ASC" },
-  { name: "Z to A", value: "TITLE/DESC" },
-  { name: "Most comments", value: "COMMENT_COUNT/DESC" },
-  { name: "Most views", value: "VIEWS_COUNT/DESC" },
-  { name: "Most likes", value: "LIKES_COUNT/DESC" },
+  { name: T["Newtest to oldest"], value: "DATE/DESC" },
+  { name: T["Oldest to newest"], value: "DATE/ASC" },
+  { name: T["A to Z"], value: "TITLE/ASC" },
+  { name: T["Z to A"], value: "TITLE/DESC" },
+  { name: T["Most comments"], value: "COMMENT_COUNT/DESC" },
+  { name: T["Most views"], value: "VIEWS_COUNT/DESC" },
+  { name: T["Most likes"], value: "LIKES_COUNT/DESC" },
 ];
 
 export const GET_POSTS_FIRST_COMMON_FOR_DASHBOARD = 30;

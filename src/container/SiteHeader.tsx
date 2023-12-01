@@ -1,4 +1,3 @@
-"use client";
 import React, { FC } from "react";
 import { useThemeMode } from "@/hooks/useThemeMode";
 import { FragmentType } from "@/__generated__";

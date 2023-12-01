@@ -5,6 +5,7 @@ import { EditorItemImageAttrs } from "./MenuBar";
 import ModalUploadImage from "./ModalUploadImage";
 import isImageFromUrl from "@/utils/IsImageFromUrl";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import getTrans from "@/utils/getTrans";
 
 interface ButtonInsertImageProps {
   className?: string;
@@ -29,6 +30,8 @@ const ButtonInsertImage: FC<ButtonInsertImageProps> = ({
   const [imageState, setImageState] = useState<ImageState>(defaultImage);
   let [isOpen, setIsOpen] = useState(false);
   let [isLoading, setisLoading] = useState(false);
+
+  const T = getTrans();
   //
   function closeModal() {
     setIsOpen(false);
@@ -44,7 +47,9 @@ const ButtonInsertImage: FC<ButtonInsertImageProps> = ({
     isImageFromUrl(url)
       .then((value) => {
         if (!value) {
-          toast.error("The url is not an image, please try again.");
+          toast.error(
+            T.pageSubmission["The url is not an image, please try again."]
+          );
           return;
         }
         onChangeImage({ sourceUrl: url, altText: alt, id: "" });
@@ -81,14 +86,14 @@ const ButtonInsertImage: FC<ButtonInsertImageProps> = ({
               <div className="opacity-0 group-hover:opacity-100 absolute z-20 end-2.5 top-2.5 flex gap-1">
                 <div
                   className=" p-1.5 bg-black dark:bg-neutral-700 text-white rounded-md cursor-pointer transition-opacity duration-300"
-                  title="Edit image"
+                  title={T["Edit image"]}
                   onClick={openModal}
                 >
                   <PencilSquareIcon className="w-4 h-4" />
                 </div>
                 <div
                   className=" p-1.5 bg-black dark:bg-neutral-700 text-white rounded-md cursor-pointer transition-opacity duration-300"
-                  title="Delete image"
+                  title={T["Delete image"]}
                   onClick={() => {
                     setImageState({ sourceUrl: "" });
                   }}
@@ -131,7 +136,7 @@ const ButtonInsertImage: FC<ButtonInsertImageProps> = ({
                       childClassName="w-5 h-5"
                     />
                   ) : (
-                    <span>Upload a file</span>
+                    <span>{T.pageSubmission["Upload a file"]}</span>
                   )}
                 </div>
               </div>

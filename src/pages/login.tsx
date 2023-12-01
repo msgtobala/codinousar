@@ -8,6 +8,7 @@ import {
   NC_SITE_SETTINGS,
 } from "@/contains/site-settings";
 import { RootState } from "@/stores/store";
+import getTrans from "@/utils/getTrans";
 import { useLogin } from "@faustwp/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -20,6 +21,7 @@ export default function Login() {
   );
   const { login, loading, error, data } = useLogin();
   const router = useRouter();
+  const T = getTrans();
 
   if (isReady && isAuthenticated) {
     router.replace("/");
@@ -44,7 +46,7 @@ export default function Login() {
     <LoginLayout
       isLoginPage
       rightBtn={{
-        text: "Sign up",
+        text: T["Sign up"],
         href: "/sign-up",
       }}
     >
@@ -58,7 +60,7 @@ export default function Login() {
                 !e.currentTarget.username?.value ||
                 !e.currentTarget.password?.value
               ) {
-                toast.error("Username and password are required!", {
+                toast.error(T["Username and password are required!"], {
                   position: "bottom-center",
                 });
                 return;
@@ -73,11 +75,11 @@ export default function Login() {
           >
             <div className="grid gap-4">
               <div className="grid gap-1.5">
-                <Label htmlFor="email">Username</Label>
+                <Label htmlFor="email">{T.Username}</Label>
                 <Input
                   id="username"
                   name="username"
-                  placeholder="Email or username"
+                  placeholder={T["Email or username"]}
                   autoCapitalize="none"
                   autoComplete="username"
                   autoCorrect="off"
@@ -87,7 +89,7 @@ export default function Login() {
                 />
               </div>
               <div className="grid gap-1.5">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{T.Password}</Label>
                 <Input
                   id="password"
                   type="password"
@@ -106,12 +108,12 @@ export default function Login() {
         </div>
 
         <p className="text-center text-sm leading-6 text-neutral-500 dark:text-neutral-400">
-          Not a member?{" "}
+          {T["Not a member?"]}{" "}
           <Link
             href="/sign-up"
             className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 hover:underline underline-offset-2"
           >
-            Sign up!
+            {T["Sign up"]}!
           </Link>
           <span className="mx-1">|</span>
           <a
@@ -124,7 +126,7 @@ export default function Login() {
             className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 hover:underline underline-offset-2"
             onClick={handleClickLostPassword}
           >
-            Lost your password?
+            {T["Lost your password?"]}
           </a>
         </p>
       </>

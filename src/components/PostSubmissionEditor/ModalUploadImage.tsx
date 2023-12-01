@@ -7,6 +7,7 @@ import NcModal from "@/components/NcModal/NcModal";
 import React, { FC, useEffect, useState } from "react";
 import { EditorItemImageAttrs } from "./MenuBar";
 import Alert from "../Alert";
+import getTrans from "@/utils/getTrans";
 
 interface MenuItemImageProps {
   onClickApply: ({ url, alt, title }: EditorItemImageAttrs) => void;
@@ -23,6 +24,8 @@ const ModalUploadImage: FC<MenuItemImageProps> = ({
   isLoading,
   defaultImage,
 }) => {
+  const T = getTrans();
+
   let [catImages] = useState(["Insert from URL", "Upload"]);
 
   const [urlState, setUrlState] = useState(defaultImage?.url || "");
@@ -68,7 +71,7 @@ const ModalUploadImage: FC<MenuItemImageProps> = ({
               className="mt-1"
               rounded="rounded-xl"
               type={"url"}
-              placeholder="Paste or type URL"
+              placeholder={T.pageSubmission["Paste or type URL"]}
               onChange={(e) => setUrlState(e.target.value)}
               defaultValue={urlState}
               name="url"
@@ -95,7 +98,11 @@ const ModalUploadImage: FC<MenuItemImageProps> = ({
       <div>
         <div className="py-5">
           <Alert type="info">
-            Sorry this feature is not available yet. Please use the URL option.
+            {
+              T.pageSubmission[
+                "Sorry this feature is not available yet. Please use the URL option."
+              ]
+            }
           </Alert>
         </div>
         {/* OLD */}
@@ -155,14 +162,14 @@ const ModalUploadImage: FC<MenuItemImageProps> = ({
         renderFooter={(closeModal) => {
           return (
             <div className="flex items-center justify-between">
-              <ButtonThird onClick={closeModal}>Cancel</ButtonThird>
+              <ButtonThird onClick={closeModal}>{T.Cancel}</ButtonThird>
               <ButtonPrimary
                 loading={isLoading}
                 onClick={() => {
                   urlState ? handleApply() : closeModal();
                 }}
               >
-                Apply
+                {T.Apply}
               </ButtonPrimary>
             </div>
           );

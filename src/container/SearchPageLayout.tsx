@@ -1,3 +1,4 @@
+"use client";
 import ArchiveFilterListBox from "@/components/ArchiveFilterListBox/ArchiveFilterListBox";
 import Input from "@/components/Input/Input";
 import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
@@ -8,6 +9,7 @@ import { useRouter } from "next/router";
 import React, { FC } from "react";
 import Tab from "./SearchPageTab";
 import { TCategoryCardFull } from "@/components/CardCategory1/CardCategory1";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   children: React.ReactNode;
@@ -22,6 +24,8 @@ const SearchPageLayout: FC<Props> = ({
 }) => {
   const router = useRouter();
   const search = router.query.search?.[0] || "";
+
+  const T = getTrans();
 
   const getCurrentTab = () => {
     let currentTab: "posts" | "categories" | "authors" = "posts";
@@ -66,7 +70,7 @@ const SearchPageLayout: FC<Props> = ({
               <Input
                 id="search-input"
                 type="search"
-                placeholder="Type and press enter"
+                placeholder={T.pageSearch["Type and press enter"]}
                 className="shadow-md text-base border-opacity-0 dark:!bg-neutral-800"
                 sizeClass="h-16 ps-14 py-4 pe-3 sm:pe-5 md:ps-16"
                 fontClass="text-base text-neutral-800 dark:text-neutral-200"
@@ -87,7 +91,7 @@ const SearchPageLayout: FC<Props> = ({
             </label>
           </form>
           <div className="flex flex-wrap justify-center gap-2 text-sm mt-5 text-neutral-700 dark:text-neutral-200 text-center">
-            <p>Recommended: </p>
+            <p>{T.pageSearch.Recommended}: </p>
             <Link
               className="hover:underline underline-offset-2"
               href={"/search/posts/programming"}
@@ -133,6 +137,9 @@ const SearchPageLayout: FC<Props> = ({
 
         {/* === SECTION 5 === */}
         <SectionTrendingTopic categories={top10Categories || []} />
+
+        {/* SUBCRIBES */}
+        <SectionSubscribe2 />
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import ButtonThird from "../Button/ButtonThird";
 import Button from "../Button/Button";
 import NcModal from "../NcModal/NcModal";
 import { PostFormatNameType } from "@/utils/getPostDataFromPostFragment";
+import getTrans from "@/utils/getTrans";
 
 type GalleryImages = Record<number, ImageState>;
 
@@ -37,6 +38,8 @@ interface PostOptionsBtnProps {
 }
 
 const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
+  const T = getTrans();
+
   const [postFormatsSelected, setPostFormatsSelected] = useState(
     defaultData.postFormatsSelected || "standard"
   );
@@ -85,7 +88,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
       <Button
         sizeClass="px-4"
         className="flex-shrink-0 !rounded-2xl"
-        title="Post options"
+        title={T.pageSubmission["Post options"]}
         pattern="third"
         onClick={openModal}
       >
@@ -111,7 +114,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderListBoxPostformat = () => {
     return (
       <div>
-        <Label>Post format</Label>
+        <Label>{T.pageSubmission["Post format"]}</Label>
         <Listbox value={postFormatsSelected} onChange={setPostFormatsSelected}>
           <div className="relative z-10 mt-1">
             <Listbox.Button className="focus:outline-none relative w-full cursor-default rounded-full py-2 pl-3 pr-10 text-left border border-neutral-100 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600">
@@ -171,14 +174,16 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderUploadGallery = () => {
     return (
       <div>
-        <span className="text-base font-semibold">Gallery images</span>
+        <span className="text-base font-semibold">
+          {T.pageSubmission["Gallery images"]}
+        </span>
         <div className="flex gap-x-2.5 py-2 overflow-x-auto snap-x customScrollBar">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, idx) => (
             <div
               className="flex-shrink-0 h-full w-48 snap-start flex flex-col"
               key={idx}
             >
-              <Label>{`Image ${item}`}</Label>
+              <Label>{`${T.Image} ${item}`}</Label>
               <ButtonInsertImage
                 defaultImage={objGalleryImgs?.[item]}
                 onChangeImage={(image) => {
@@ -199,7 +204,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderExcerptTextarea = () => {
     return (
       <div>
-        <Label>Write an excerpt (optional)</Label>
+        <Label>{T.pageSubmission["Write an excerpt (optional)"]}</Label>
         <Textarea
           onChange={(event) => {
             debounceGetExcerpt(event.currentTarget.value);
@@ -213,7 +218,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderSchedulePublication = () => {
     return (
       <div>
-        <Label>Schedule Publication</Label>
+        <Label>{T.pageSubmission["Schedule Publication"]} (UTC+0)</Label>
         <Input
           onChange={(event) => {
             settimeSchedulePublication(event.currentTarget.value);
@@ -232,14 +237,16 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderInputVideoUrl = () => {
     return (
       <div>
-        <Label>{`Video URL (Youtube, Vimeo, mp4 ... )`}</Label>
+        <Label>
+          {T.pageSubmission["Video URL (Youtube, Vimeo, mp4 ... )"]}
+        </Label>
         <Input
           onChange={(event) => {
             debounceVideoUrlChange(event.currentTarget.value);
           }}
           defaultValue={videoUrl}
           className="mt-1"
-          placeholder="Video url..."
+          placeholder={T.pageSubmission["Video url..."]}
         />
       </div>
     );
@@ -257,7 +264,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
           }}
           defaultValue={audioUrl}
           className="mt-1"
-          placeholder="Audio url..."
+          placeholder={T.pageSubmission["Audio url..."]}
         />
       </div>
     );
@@ -266,7 +273,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
   const renderAllowCommentSwitch = () => {
     return (
       <div className="flex gap-3 sm:gap-8 items-center">
-        <Label>Allow comments</Label>
+        <Label>{T.pageSubmission["Allow comments"]}</Label>
         <Switch
           checked={isAllowComments}
           onChange={setIsAllowComments}
@@ -327,7 +334,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
                   closeModal();
                 }}
               >
-                Cancel
+                {T.Cancel}
               </ButtonThird>
               <ButtonPrimary
                 onClick={() => {
@@ -335,7 +342,7 @@ const PostOptionsBtn: FC<PostOptionsBtnProps> = ({ onSubmit, defaultData }) => {
                   closeModal();
                 }}
               >
-                Apply
+                {T.Apply}
               </ButtonPrimary>
             </div>
           );

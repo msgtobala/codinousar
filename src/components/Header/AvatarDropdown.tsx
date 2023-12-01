@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Popover, Transition } from '@/app/headlessui';
-import { FC, Fragment, useEffect } from 'react';
-import Avatar from '@/components/Avatar/Avatar';
-import SwitchDarkMode2 from '@/components/SwitchDarkMode/SwitchDarkMode2';
-import Link from 'next/link';
+import { Popover, Transition } from "@/app/headlessui";
+import { FC, Fragment, useEffect } from "react";
+import Avatar from "@/components/Avatar/Avatar";
+import SwitchDarkMode2 from "@/components/SwitchDarkMode/SwitchDarkMode2";
+import Link from "next/link";
 import {
   BookmarkIcon,
   FingerPrintIcon,
@@ -14,20 +14,21 @@ import {
   PowerIcon,
   UserIcon,
   UserPlusIcon,
-} from '@heroicons/react/24/outline';
-import { useLogout } from '@faustwp/core';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/stores/store';
-import { useLoginModal } from '@/container/LoginModalProvider';
-import { getImageDataFromImageFragment } from '@/utils/getImageDataFromImageFragment';
-import { NC_SITE_SETTINGS } from '@/contains/site-settings';
-import CircleLoading from '../Loading/CircleLoading';
-import { useRouter } from 'next/router';
+} from "@heroicons/react/24/outline";
+import { useLogout } from "@faustwp/core";
+import { useSelector } from "react-redux";
+import { RootState } from "@/stores/store";
+import { useLoginModal } from "@/container/LoginModalProvider";
+import { getImageDataFromImageFragment } from "@/utils/getImageDataFromImageFragment";
+import { NC_SITE_SETTINGS } from "@/contains/site-settings";
+import CircleLoading from "../Loading/CircleLoading";
+import { useRouter } from "next/router";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   className?: string;
 }
-export default function AvatarDropdown({ className = '' }: Props) {
+export default function AvatarDropdown({ className = "" }: Props) {
   const { isReady, isAuthenticated } = useSelector(
     (state: RootState) => state.viewer.authorizedUser
   );
@@ -35,6 +36,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
   const { viewer } = useSelector((state: RootState) => state.viewer);
   const { openLoginModal } = useLoginModal();
   const router = useRouter();
+  const T = getTrans();
   const userRole = viewer?.roles?.edges[0].node.name ?? undefined;
   const canEdit =
     userRole !== undefined && userRole.toLocaleLowerCase() !== 'subscriber';
@@ -51,14 +53,14 @@ export default function AvatarDropdown({ className = '' }: Props) {
       return null;
     }
     return (
-      <Link href={viewer.uri || ''} className="flex items-center">
+      <Link href={viewer.uri || ""} className="flex items-center">
         <Avatar
           imgUrl={
             getImageDataFromImageFragment(
               viewer?.ncUserMeta?.featuredImage?.node
-            ).sourceUrl || ''
+            ).sourceUrl || ""
           }
-          userName={viewer?.name || ''}
+          userName={viewer?.name || ""}
           sizeClass="w-12 h-12"
         />
 
@@ -73,14 +75,14 @@ export default function AvatarDropdown({ className = '' }: Props) {
   const renderMenuEditProfile = () => {
     return (
       <Link
-        href={'/dashboard/edit-profile/profile'}
+        href={"/dashboard/edit-profile/profile"}
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
       >
         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
           <UserIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">{'Edit profile'}</p>
+          <p className="text-sm font-medium ">{T["Edit profile"]}</p>
         </div>
       </Link>
     );
@@ -89,7 +91,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
   const renderMenuMyPosts = () => {
     return (
       <Link
-        href={'/dashboard/posts/published'}
+        href={"/dashboard/posts/published"}
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
       >
         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
@@ -129,7 +131,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
           </svg>
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">{'My Posts'}</p>
+          <p className="text-sm font-medium ">{T["My Posts"]}</p>
         </div>
       </Link>
     );
@@ -145,7 +147,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
           <HeartIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">{'Wishlist'}</p>
+          <p className="text-sm font-medium ">{T.Wishlist}</p>
         </div>
       </Link>
     );
@@ -154,14 +156,14 @@ export default function AvatarDropdown({ className = '' }: Props) {
   const renderMenuBookmark = () => {
     return (
       <Link
-        href={'/readinglist'}
+        href={"/readinglist"}
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
       >
         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
           <BookmarkIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <span className="text-sm font-medium ">{'Reading list'}</span>
+          <span className="text-sm font-medium ">{T["Reading list"]}</span>
         </div>
       </Link>
     );
@@ -175,7 +177,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
             <LightBulbIcon className="w-6 h-6" />
           </div>
           <div className="ms-4">
-            <p className="text-sm font-medium ">{'Dark theme'}</p>
+            <p className="text-sm font-medium ">{T["Dark theme"]}</p>
           </div>
         </div>
         <SwitchDarkMode2 />
@@ -186,7 +188,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
   const renderMenuHelp = () => {
     return (
       <Link
-        href={NC_SITE_SETTINGS?.help_page.uri || ''}
+        href={NC_SITE_SETTINGS?.help_page.uri || ""}
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
         onClick={() => close()}
       >
@@ -194,7 +196,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
           <FireIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">{'Help'}</p>
+          <p className="text-sm font-medium ">{T.Help}</p>
         </div>
       </Link>
     );
@@ -204,13 +206,13 @@ export default function AvatarDropdown({ className = '' }: Props) {
     return (
       <Link
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-        href={'/sign-up'}
+        href={"/sign-up"}
       >
         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
           <UserPlusIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <span className="text-sm font-medium ">Sign up</span>
+          <span className="text-sm font-medium ">{T["Sign up"]}</span>
         </div>
       </Link>
     );
@@ -226,7 +228,7 @@ export default function AvatarDropdown({ className = '' }: Props) {
           <FingerPrintIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">Log in</p>
+          <p className="text-sm font-medium ">{T.Login}</p>
         </div>
       </button>
     );
@@ -236,13 +238,13 @@ export default function AvatarDropdown({ className = '' }: Props) {
     return (
       <button
         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-        onClick={() => logout('/')}
+        onClick={() => logout("/")}
       >
         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
           <PowerIcon className="w-6 h-6" />
         </div>
         <div className="ms-4">
-          <p className="text-sm font-medium ">{'Log out'}</p>
+          <p className="text-sm font-medium ">{T["Log out"]}</p>
         </div>
       </button>
     );

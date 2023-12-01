@@ -1,11 +1,13 @@
 import { FaustPage } from "@faustwp/core";
 import { GetStaticPaths, GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Page: FaustPage<{}> = () => {
   const router = useRouter();
-  router.push("/search/posts/" + router.query.search || "");
+  useEffect(() => {
+    router.push("/search/posts/" + router.query.search || "");
+  }, []);
 
   return <div></div>;
 };

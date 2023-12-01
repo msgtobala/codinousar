@@ -22,6 +22,14 @@ const ModalEditComment: FC<ModalEditCommentProps> = ({
   onSubmitModalEditComment,
 }) => {
   const renderContent = () => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+
+    const fakeNode = document.createElement("div");
+    fakeNode.innerHTML = comment?.content || "";
+    const contentText = fakeNode.textContent || fakeNode.innerText || "";
+
     return (
       <SingleCommentForm
         className="mt-0"
@@ -32,7 +40,7 @@ const ModalEditComment: FC<ModalEditCommentProps> = ({
         }}
         isAutoFocus
         isEditingComment
-        defaultValue={comment?.content || ""}
+        defaultValue={contentText}
         rows={8}
       />
     );

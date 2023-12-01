@@ -48,6 +48,12 @@ const MusicPlayer: FC<MusicPlayerProps> = ({}) => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [isInitShow, setIsInitShow] = useState(false);
+
+  // EFFECT
+  useEffect(() => {
+    setIsInitShow(true);
+  }, []);
   //
   useEffect(() => {
     setIsError(false);
@@ -132,6 +138,10 @@ const MusicPlayer: FC<MusicPlayerProps> = ({}) => {
   const handleDuration = (duration: number) => {
     setDuration(duration);
   };
+
+  if (typeof window === "undefined" || !isInitShow) {
+    return null;
+  }
 
   return (
     <div className={`nc-MusicPlayer fixed bottom-0 inset-x-0 flex z-30`}>

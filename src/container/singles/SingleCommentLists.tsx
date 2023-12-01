@@ -5,6 +5,7 @@ import CommentCard, {
 } from "@/components/CommentCard/CommentCard";
 import CommentCardSkeleton from "@/components/CommentCard/CommentCardSkeleton";
 import CommentCardFake from "@/components/CommentCard/CommentCardFake";
+import getTrans from "@/utils/getTrans";
 
 export interface SingleCommentListsProps {
   postDatabaseId: number;
@@ -34,6 +35,8 @@ const SingleCommentLists: FC<SingleCommentListsProps> = ({
   onSubmitFormReply,
   onCancelFormReply,
 }) => {
+  const T = getTrans();
+
   const renderCommentCard = (
     comment: TCommentHasChild,
     index: number,
@@ -137,7 +140,7 @@ const SingleCommentLists: FC<SingleCommentListsProps> = ({
             onClick={onLoadmoreComments}
             loading={loading}
           >
-            Show more comments
+            {T.pageSingle["Show more comments"]}
           </ButtonPrimary>
         </div>
       ) : null}

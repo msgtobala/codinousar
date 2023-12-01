@@ -4,6 +4,7 @@ import Empty from "./Empty";
 import Card11Skeleton from "./Card11/Card11Skeleton";
 import Card11 from "./Card11/Card11";
 import ButtonPrimary from "./Button/ButtonPrimary";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   posts: NcmazFcPostFullFieldsFragment[] | null;
@@ -39,7 +40,7 @@ const GridPostsArchive: FC<Props> = ({
       {showLoadmore ? (
         <div className="mt-12 lg:mt-14 flex justify-center">
           <ButtonPrimary loading={loading} onClick={onClickLoadmore}>
-            Show me more
+            {getTrans()["Show me more"]}
           </ButtonPrimary>
         </div>
       ) : null}

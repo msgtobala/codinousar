@@ -26,13 +26,13 @@ export default function Footer({ menuItems }: Props) {
     return (
       <div key={index + item.id}>
         <h3 className="text-sm font-semibold leading-6 text-neutral-900 dark:text-neutral-200">
-          <Link href={item.uri || "#"}>{item.label}</Link>
+          <Link href={item.uri ?? "/"}>{item.label}</Link>
         </h3>
         <ul role="list" className="mt-6 space-y-4">
           {item.children?.map((j, id) => (
             <li key={j.id + id}>
               <Link
-                href={j.uri || "#"}
+                href={j.uri ?? ""}
                 className="text-sm leading-6 text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-neutral-100"
               >
                 {j.label}

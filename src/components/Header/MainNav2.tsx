@@ -10,6 +10,7 @@ import Brand from "./Brand";
 import { useRouter } from "next/router";
 import CreateBtn from "./CreateBtn";
 import dynamic from "next/dynamic";
+import getTrans from "@/utils/getTrans";
 
 const DynamicMenuBar = dynamic(() => import("@/components/MenuBar/MenuBar"), {
   ssr: false,
@@ -19,6 +20,7 @@ export interface MainNav2Props extends MainNav1Props {}
 
 const MainNav2: FC<MainNav2Props> = ({ menuItems, description, title }) => {
   const router = useRouter();
+  const T = getTrans();
 
   const renderSearchForm = () => {
     return (
@@ -31,7 +33,7 @@ const MainNav2: FC<MainNav2Props> = ({ menuItems, description, title }) => {
       >
         <Input
           type="search"
-          placeholder="Type to search..."
+          placeholder={T["Type to search..."]}
           className="pr-5 md:pr-10 !w-40 md:!w-full group-hover:border-neutral-300 dark:group-hover:border-neutral-400 dark:placeholder:text-neutral-400"
           sizeClass="h-[42px] pl-4 py-3"
           name="search"

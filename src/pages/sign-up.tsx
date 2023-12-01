@@ -5,6 +5,7 @@ import Input from "@/components/Input/Input";
 import Label from "@/components/Label/Label";
 import LoginLayout from "@/container/login/LoginLayout";
 import { RootState } from "@/stores/store";
+import getTrans from "@/utils/getTrans";
 import { useMutation } from "@apollo/client";
 import { useLogin, useLogout } from "@faustwp/core";
 import Link from "next/link";
@@ -23,6 +24,8 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const userName = email.split("@")[0];
+
+  const T = getTrans();
 
   const [mutationRegisterUser, { loading, data, error, called }] = useMutation(
     gql(/* GraphQL */ `
@@ -58,7 +61,7 @@ export default function Login() {
   const handleRegister = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email || !password) {
-      toast.error("Email and password are required!", {
+      toast.error(T["Email and password are required!"], {
         position: "bottom-center",
       });
       return;
@@ -76,7 +79,7 @@ export default function Login() {
     <LoginLayout
       isSignUpPage
       rightBtn={{
-        text: "Login",
+        text: T.Login,
         href: "/login",
       }}
     >
@@ -85,10 +88,10 @@ export default function Login() {
           <form onSubmit={handleRegister}>
             <div className="grid gap-4">
               <div className="grid gap-1.5">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{T.Email}</Label>
                 <Input
                   id="email"
-                  placeholder="Enter your email"
+                  placeholder={T["Enter your email"]}
                   autoCapitalize="none"
                   autoComplete="email"
                   autoCorrect="off"
@@ -98,7 +101,7 @@ export default function Login() {
                 />
               </div>
               <div className="grid gap-1.5">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{T.Password}</Label>
                 <Input
                   id="password"
                   type="password"
@@ -110,7 +113,7 @@ export default function Login() {
                 <ButtonPrimary
                   loading={loading || loginLoading || logoutLoading}
                 >
-                  Sign up
+                  {T["Sign up"]}
                 </ButtonPrimary>
 
                 {!!error?.message && (
@@ -122,12 +125,12 @@ export default function Login() {
         </div>
 
         <p className="text-center text-sm leading-6 text-gray-500 dark:text-neutral-400">
-          Already have an account?{" "}
+          {T["Already have an account?"]}{" "}
           <Link
             href="/login"
             className="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-500 hover:underline underline-offset-2"
           >
-            Login!
+            {T.Login}!
           </Link>
         </p>
       </>

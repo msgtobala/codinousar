@@ -10,22 +10,15 @@ interface Props {
 }
 
 export default function useGetPostsNcmazMetaByIds(props: Props) {
-  if (!props.posts?.length) {
-    return {
-      loading: false,
-      data: undefined,
-      error: undefined,
-      called: false,
-    };
-  }
-
   const [refetchTimes, setRefetchTimes] = useState(0);
 
   const dispatch = useDispatch();
 
-  let IDS = props.posts.map((post) => post.databaseId.toString());
+  let IDS = props.posts?.map((post) => post.databaseId.toString());
 
-  const DOM_ID_LOADING = "getPostsNcmazMetaByIds_loading_" + IDS.join("_");
+  const DOM_ID_LOADING = IDS?.length
+    ? "getPostsNcmazMetaByIds_loading_" + IDS.join("_")
+    : null;
 
   const { data, loading, error, called, refetch } = useQuery(
     gql(/* GraphQL */ `
@@ -49,6 +42,7 @@ export default function useGetPostsNcmazMetaByIds(props: Props) {
       variables: {
         in: IDS,
       },
+      skip: !IDS?.length,
       notifyOnNetworkStatusChange: true,
       context: { fetchOptions: { method: "GET" } },
       fetchPolicy: "cache-and-network",
@@ -67,6 +61,10 @@ export default function useGetPostsNcmazMetaByIds(props: Props) {
   );
 
   useEffect(() => {
+    if (typeof window === "undefined" || !DOM_ID_LOADING) {
+      return;
+    }
+
     if (!loading) {
       const loadingDom = document.getElementById(DOM_ID_LOADING);
       if (loadingDom) {

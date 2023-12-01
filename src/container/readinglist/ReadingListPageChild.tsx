@@ -1,10 +1,7 @@
-import { gql } from "@/__generated__";
-import {
-  GetReadingListPageQuery,
-  NcgeneralSettingsFieldsFragmentFragment,
-} from "../__generated__/graphql";
-import { FaustPage, getNextStaticProps } from "@faustwp/core";
-import { GetStaticPropsContext } from "next";
+"use client";
+
+import { GetReadingListPageQuery } from "../../__generated__/graphql";
+import { FaustPage } from "@faustwp/core";
 import { useSelector } from "react-redux";
 import { RootState } from "@/stores/store";
 import { useLazyQuery } from "@apollo/client";
@@ -15,21 +12,20 @@ import Card3 from "@/components/Card3/Card3";
 import updatePostFromUpdateQuery from "@/utils/updatePostFromUpdateQuery";
 import Card3Skeleton from "@/components/Card3/Card3Skeleton";
 import { QUERY_GET_POSTS_BY } from "@/fragments/queries";
-import { FOOTER_LOCATION, PRIMARY_LOCATION } from "@/contains/menu";
-import PageLayout from "@/container/PageLayout";
-import Heading from "@/components/Heading/Heading";
 import { PostDataFragmentType } from "@/data/types";
 import errorHandling from "@/utils/errorHandling";
 import GraphqlError from "@/components/GraphqlError";
+import getTrans from "@/utils/getTrans";
 
 //
 
-const Page: FaustPage<GetReadingListPageQuery> = (props) => {
+const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
   // START ----------
   const { isReady, isAuthenticated } = useSelector(
     (state: RootState) => state.viewer.authorizedUser
   );
   const [refetchTimes, setRefetchTimes] = useState(0);
+  const T = getTrans();
 
   // useLazyQuery get reading list posts
   const [queryGetPostsByPostIn, getPostsByPostInResult] = useLazyQuery(
@@ -180,82 +176,29 @@ const Page: FaustPage<GetReadingListPageQuery> = (props) => {
 
   return (
     <>
-      <PageLayout
-        headerMenuItems={props.data?.primaryMenuItems?.nodes || []}
-        footerMenuItems={props.data?.footerMenuItems?.nodes || []}
-        pageFeaturedImageUrl={null}
-        pageTitle={"Reading list"}
-        generalSettings={
-          props.data?.generalSettings as NcgeneralSettingsFieldsFragmentFragment
-        }
-      >
-        <div className="container py-20">
-          <main className="mx-auto max-w-4xl">
-            <Heading desc="Let's read and save your favorite articles here ! 📚">
-              Reading list
-            </Heading>
-            <div className="my-10 border-t border-neutral-100 dark:border-neutral-700"></div>
+      {/* ERRR */}
+      {!!getPostsByPostInResult.error && (
+        <GraphqlError
+          error={getPostsByPostInResult.error}
+          hasRefetchBtn
+          refetch={getPostsByPostInResult.refetch}
+          loading={loading}
+        />
+      )}
 
-            {/* ERRR */}
-            {!!getPostsByPostInResult.error && (
-              <GraphqlError
-                error={getPostsByPostInResult.error}
-                hasRefetchBtn
-                refetch={getPostsByPostInResult.refetch}
-                loading={loading}
-              />
-            )}
+      {/* CONTENT */}
+      {renderContent()}
 
-            {/* CONTENT */}
-            {renderContent()}
-
-            {/* PAGINATION */}
-            {hasNextPage ? (
-              <div className="mt-12 lg:mt-16 flex justify-center">
-                <ButtonPrimary loading={loading} onClick={handleClickLoadmore}>
-                  Show me more
-                </ButtonPrimary>
-              </div>
-            ) : null}
-          </main>
+      {/* PAGINATION */}
+      {hasNextPage ? (
+        <div className="mt-12 lg:mt-16 flex justify-center">
+          <ButtonPrimary loading={loading} onClick={handleClickLoadmore}>
+            {T["Show me more"]}
+          </ButtonPrimary>
         </div>
-      </PageLayout>
+      ) : null}
     </>
   );
 };
 
-Page.variables = () => {
-  return {
-    headerLocation: PRIMARY_LOCATION,
-    footerLocation: FOOTER_LOCATION,
-  };
-};
-
-// Note***: tat ca cac query trong cac page deu phai co generalSettings, no duoc su dung o compoent Wrap
-Page.query = gql(`
-  query GetReadingListPage($headerLocation: MenuLocationEnum!, $footerLocation: MenuLocationEnum!) {
-    # common query for all page 
-    generalSettings {
-      ...NcgeneralSettingsFieldsFragment
-    }
-    primaryMenuItems: menuItems(where: { location:  $headerLocation  }, first: 80) {
-      nodes {
-        ...NcPrimaryMenuFieldsFragment
-      }
-    }
-    footerMenuItems: menuItems(where: { location:  $footerLocation  }, first: 50) {
-      nodes {
-        ...NcFooterMenuFieldsFragment
-      }
-    }
-  }
-`);
-
-export function getStaticProps(ctx: GetStaticPropsContext) {
-  return getNextStaticProps(ctx, {
-    Page,
-    revalidate: 900,
-  });
-}
-
-export default Page;
+export default ReadingListPageChild;

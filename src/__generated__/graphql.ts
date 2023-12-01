@@ -36,172 +36,6 @@ export type AcfFieldGroupFields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
 };
 
-/** A block used for editing the site */
-export type AioseoBreadcrumbs = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'AioseoBreadcrumbs';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the AioseoBreadcrumbs Block Type */
-  attributes?: Maybe<AioseoBreadcrumbsAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the AioseoBreadcrumbs Block Type */
-export type AioseoBreadcrumbsAttributes = {
-  __typename?: 'AioseoBreadcrumbsAttributes';
-  /** The &quot;className&quot; field on the &quot;AioseoBreadcrumbs&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;lock&quot; field on the &quot;AioseoBreadcrumbs&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;primaryTerm&quot; field on the &quot;AioseoBreadcrumbs&quot; block */
-  primaryTerm?: Maybe<Scalars['String']['output']>;
-};
-
-/** A block used for editing the site */
-export type AioseoFaq = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'AioseoFaq';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the AioseoFaq Block Type */
-  attributes?: Maybe<AioseoFaqAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the AioseoFaq Block Type */
-export type AioseoFaqAttributes = {
-  __typename?: 'AioseoFaqAttributes';
-  /** The &quot;className&quot; field on the &quot;AioseoFaq&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;lock&quot; field on the &quot;AioseoFaq&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-};
-
-/** A block used for editing the site */
-export type AioseoHtmlSitemap = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'AioseoHtmlSitemap';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the AioseoHtmlSitemap Block Type */
-  attributes?: Maybe<AioseoHtmlSitemapAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the AioseoHtmlSitemap Block Type */
-export type AioseoHtmlSitemapAttributes = {
-  __typename?: 'AioseoHtmlSitemapAttributes';
-  /** The &quot;archives&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  archives?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;className&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;default&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  default?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;excluded_posts&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  excludedPosts?: Maybe<Scalars['String']['output']>;
-  /** The &quot;excluded_terms&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  excludedTerms?: Maybe<Scalars['String']['output']>;
-  /** The &quot;is_admin&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  isAdmin?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;lock&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;nofollow_links&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  nofollowLinks?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;order&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  order?: Maybe<Scalars['String']['output']>;
-  /** The &quot;order_by&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  orderBy?: Maybe<Scalars['String']['output']>;
-  /** The &quot;post_types&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  postTypes?: Maybe<Scalars['String']['output']>;
-  /** The &quot;post_types_all&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  postTypesAll?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;publication_date&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  publicationDate?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;show_label&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  showLabel?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;taxonomies&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  taxonomies?: Maybe<Scalars['String']['output']>;
-  /** The &quot;taxonomies_all&quot; field on the &quot;AioseoHtmlSitemap&quot; block */
-  taxonomiesAll?: Maybe<Scalars['Boolean']['output']>;
-};
-
-/** A block used for editing the site */
-export type AioseoTableOfContents = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'AioseoTableOfContents';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the AioseoTableOfContents Block Type */
-  attributes?: Maybe<AioseoTableOfContentsAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the AioseoTableOfContents Block Type */
-export type AioseoTableOfContentsAttributes = {
-  __typename?: 'AioseoTableOfContentsAttributes';
-  /** The &quot;className&quot; field on the &quot;AioseoTableOfContents&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;lock&quot; field on the &quot;AioseoTableOfContents&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-};
-
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export type Avatar = {
   __typename?: 'Avatar';
@@ -857,7 +691,7 @@ export enum CommentStatusEnum {
   Hold = 'HOLD',
   /** Comments with the Spam status */
   Spam = 'SPAM',
-  /** Comments with the Bin status */
+  /** Comments with the Trash status */
   Trash = 'TRASH'
 }
 
@@ -1967,8 +1801,6 @@ export type CoreButtonAttributes = BlockWithSupportsAnchor & {
   rel?: Maybe<Scalars['String']['output']>;
   /** The &quot;style&quot; field on the &quot;CoreButton&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;tagName&quot; field on the &quot;CoreButton&quot; block */
-  tagName?: Maybe<Scalars['String']['output']>;
   /** The &quot;text&quot; field on the &quot;CoreButton&quot; block */
   text?: Maybe<Scalars['String']['output']>;
   /** The &quot;textAlign&quot; field on the &quot;CoreButton&quot; block */
@@ -1977,8 +1809,6 @@ export type CoreButtonAttributes = BlockWithSupportsAnchor & {
   textColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;title&quot; field on the &quot;CoreButton&quot; block */
   title?: Maybe<Scalars['String']['output']>;
-  /** The &quot;type&quot; field on the &quot;CoreButton&quot; block */
-  type?: Maybe<Scalars['String']['output']>;
   /** The &quot;url&quot; field on the &quot;CoreButton&quot; block */
   url?: Maybe<Scalars['String']['output']>;
   /** The &quot;width&quot; field on the &quot;CoreButton&quot; block */
@@ -3035,8 +2865,6 @@ export type CoreDetailsAttributes = {
   fontSize?: Maybe<Scalars['String']['output']>;
   /** The &quot;gradient&quot; field on the &quot;CoreDetails&quot; block */
   gradient?: Maybe<Scalars['String']['output']>;
-  /** The &quot;layout&quot; field on the &quot;CoreDetails&quot; block */
-  layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreDetails&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;showContent&quot; field on the &quot;CoreDetails&quot; block */
@@ -3195,22 +3023,10 @@ export type CoreFootnotes = EditorBlock & PageEditorBlock & PostEditorBlock & {
 /** Attributes of the CoreFootnotes Block Type */
 export type CoreFootnotesAttributes = {
   __typename?: 'CoreFootnotesAttributes';
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  backgroundColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;borderColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  borderColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CoreFootnotes&quot; block */
   className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fontFamily&quot; field on the &quot;CoreFootnotes&quot; block */
-  fontFamily?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fontSize&quot; field on the &quot;CoreFootnotes&quot; block */
-  fontSize?: Maybe<Scalars['String']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreFootnotes&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;style&quot; field on the &quot;CoreFootnotes&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;textColor&quot; field on the &quot;CoreFootnotes&quot; block */
-  textColor?: Maybe<Scalars['String']['output']>;
 };
 
 /** A block used for editing the site */
@@ -3567,8 +3383,6 @@ export type CoreImageAttributes = BlockWithSupportsAnchor & {
   href?: Maybe<Scalars['String']['output']>;
   /** The &quot;id&quot; field on the &quot;CoreImage&quot; block */
   id?: Maybe<Scalars['Float']['output']>;
-  /** The &quot;lightbox&quot; field on the &quot;CoreImage&quot; block */
-  lightbox?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;linkClass&quot; field on the &quot;CoreImage&quot; block */
   linkClass?: Maybe<Scalars['String']['output']>;
   /** The &quot;linkDestination&quot; field on the &quot;CoreImage&quot; block */
@@ -4777,24 +4591,18 @@ export type CorePostContentAttributes = {
   __typename?: 'CorePostContentAttributes';
   /** The &quot;align&quot; field on the &quot;CorePostContent&quot; block */
   align?: Maybe<Scalars['String']['output']>;
-  /** The &quot;backgroundColor&quot; field on the &quot;CorePostContent&quot; block */
-  backgroundColor?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CorePostContent&quot; block */
   className?: Maybe<Scalars['String']['output']>;
   /** The &quot;fontFamily&quot; field on the &quot;CorePostContent&quot; block */
   fontFamily?: Maybe<Scalars['String']['output']>;
   /** The &quot;fontSize&quot; field on the &quot;CorePostContent&quot; block */
   fontSize?: Maybe<Scalars['String']['output']>;
-  /** The &quot;gradient&quot; field on the &quot;CorePostContent&quot; block */
-  gradient?: Maybe<Scalars['String']['output']>;
   /** The &quot;layout&quot; field on the &quot;CorePostContent&quot; block */
   layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CorePostContent&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;style&quot; field on the &quot;CorePostContent&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;textColor&quot; field on the &quot;CorePostContent&quot; block */
-  textColor?: Maybe<Scalars['String']['output']>;
 };
 
 /** A block used for editing the site */
@@ -5335,8 +5143,6 @@ export type CoreQueryAttributes = {
   align?: Maybe<Scalars['String']['output']>;
   /** The &quot;className&quot; field on the &quot;CoreQuery&quot; block */
   className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;enhancedPagination&quot; field on the &quot;CoreQuery&quot; block */
-  enhancedPagination?: Maybe<Scalars['Boolean']['output']>;
   /** The &quot;layout&quot; field on the &quot;CoreQuery&quot; block */
   layout?: Maybe<Scalars['BlockAttributesObject']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreQuery&quot; block */
@@ -5539,8 +5345,6 @@ export type CoreQueryPaginationNumbersAttributes = {
   gradient?: Maybe<Scalars['String']['output']>;
   /** The &quot;lock&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;midSize&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
-  midSize?: Maybe<Scalars['Float']['output']>;
   /** The &quot;style&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
   style?: Maybe<Scalars['BlockAttributesObject']['output']>;
 };
@@ -9621,82 +9425,6 @@ export enum MimeTypeEnum {
   /** video/x-ms-wmx mime type. */
   VideoXMsWmx = 'VIDEO_X_MS_WMX'
 }
-
-/** A block used for editing the site */
-export type MonsterinsightsPopularPostsInline = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'MonsterinsightsPopularPostsInline';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the MonsterinsightsPopularPostsInline Block Type */
-  attributes?: Maybe<MonsterinsightsPopularPostsInlineAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the MonsterinsightsPopularPostsInline Block Type */
-export type MonsterinsightsPopularPostsInlineAttributes = {
-  __typename?: 'MonsterinsightsPopularPostsInlineAttributes';
-  /** The &quot;className&quot; field on the &quot;MonsterinsightsPopularPostsInline&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;followrules&quot; field on the &quot;MonsterinsightsPopularPostsInline&quot; block */
-  followrules?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;lock&quot; field on the &quot;MonsterinsightsPopularPostsInline&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;slug&quot; field on the &quot;MonsterinsightsPopularPostsInline&quot; block */
-  slug?: Maybe<Scalars['String']['output']>;
-};
-
-/** A block used for editing the site */
-export type MonsterinsightsPopularPostsWidget = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'MonsterinsightsPopularPostsWidget';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the MonsterinsightsPopularPostsWidget Block Type */
-  attributes?: Maybe<MonsterinsightsPopularPostsWidgetAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the MonsterinsightsPopularPostsWidget Block Type */
-export type MonsterinsightsPopularPostsWidgetAttributes = {
-  __typename?: 'MonsterinsightsPopularPostsWidgetAttributes';
-  /** The &quot;className&quot; field on the &quot;MonsterinsightsPopularPostsWidget&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;followrules&quot; field on the &quot;MonsterinsightsPopularPostsWidget&quot; block */
-  followrules?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;lock&quot; field on the &quot;MonsterinsightsPopularPostsWidget&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-  /** The &quot;slug&quot; field on the &quot;MonsterinsightsPopularPostsWidget&quot; block */
-  slug?: Maybe<Scalars['String']['output']>;
-};
 
 /** Added by WPGraphQL for ACF Redux */
 export type NcPageMeta = AcfFieldGroup & AcfFieldGroupFields & NcPageMeta_Fields & {
@@ -17452,76 +17180,6 @@ export type WithAcfNcmazfaustMenu = {
   ncmazfaustMenu?: Maybe<NcmazfaustMenu>;
 };
 
-/** A block used for editing the site */
-export type WpformsFormSelector = EditorBlock & PageEditorBlock & PostEditorBlock & {
-  __typename?: 'WpformsFormSelector';
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']['output']>;
-  /** Attributes of the WpformsFormSelector Block Type */
-  attributes?: Maybe<WpformsFormSelectorAttributes>;
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']['output']>;
-  /** The id of the Block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>;
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']['output'];
-  /** The name of the block */
-  name?: Maybe<Scalars['String']['output']>;
-  /** The parent id of the Block */
-  parentClientId?: Maybe<Scalars['String']['output']>;
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']['output']>;
-};
-
-/** Attributes of the WpformsFormSelector Block Type */
-export type WpformsFormSelectorAttributes = {
-  __typename?: 'WpformsFormSelectorAttributes';
-  /** The &quot;buttonBackgroundColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  buttonBackgroundColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;buttonBorderRadius&quot; field on the &quot;WpformsFormSelector&quot; block */
-  buttonBorderRadius?: Maybe<Scalars['String']['output']>;
-  /** The &quot;buttonSize&quot; field on the &quot;WpformsFormSelector&quot; block */
-  buttonSize?: Maybe<Scalars['String']['output']>;
-  /** The &quot;buttonTextColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  buttonTextColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;className&quot; field on the &quot;WpformsFormSelector&quot; block */
-  className?: Maybe<Scalars['String']['output']>;
-  /** The &quot;clientId&quot; field on the &quot;WpformsFormSelector&quot; block */
-  clientId?: Maybe<Scalars['String']['output']>;
-  /** The &quot;copyPasteJsonValue&quot; field on the &quot;WpformsFormSelector&quot; block */
-  copyPasteJsonValue?: Maybe<Scalars['String']['output']>;
-  /** The &quot;displayDesc&quot; field on the &quot;WpformsFormSelector&quot; block */
-  displayDesc?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;displayTitle&quot; field on the &quot;WpformsFormSelector&quot; block */
-  displayTitle?: Maybe<Scalars['Boolean']['output']>;
-  /** The &quot;fieldBackgroundColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  fieldBackgroundColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fieldBorderColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  fieldBorderColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fieldBorderRadius&quot; field on the &quot;WpformsFormSelector&quot; block */
-  fieldBorderRadius?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fieldSize&quot; field on the &quot;WpformsFormSelector&quot; block */
-  fieldSize?: Maybe<Scalars['String']['output']>;
-  /** The &quot;fieldTextColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  fieldTextColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;formId&quot; field on the &quot;WpformsFormSelector&quot; block */
-  formId?: Maybe<Scalars['String']['output']>;
-  /** The &quot;labelColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  labelColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;labelErrorColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  labelErrorColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;labelSize&quot; field on the &quot;WpformsFormSelector&quot; block */
-  labelSize?: Maybe<Scalars['String']['output']>;
-  /** The &quot;labelSublabelColor&quot; field on the &quot;WpformsFormSelector&quot; block */
-  labelSublabelColor?: Maybe<Scalars['String']['output']>;
-  /** The &quot;lock&quot; field on the &quot;WpformsFormSelector&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']['output']>;
-};
-
 /** The writing setting type */
 export type WritingSettings = {
   __typename?: 'WritingSettings';
@@ -18297,13 +17955,13 @@ export type GetPageQueryVariables = Exact<{
 }>;
 
 
-export type GetPageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', title?: string | null, ncPageMeta?: { __typename?: 'NcPageMeta', isFullWithPage?: boolean | null } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, sourceUrl?: string | null } } | null, editorBlocks?: Array<{ __typename: 'AioseoBreadcrumbs', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'AioseoFaq', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'AioseoHtmlSitemap', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'AioseoTableOfContents', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreArchives', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreAudio', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreAvatar', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreBlock', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreButton', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreButtons', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCalendar', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCategories', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCode', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | (
+export type GetPageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Page', title?: string | null, ncPageMeta?: { __typename?: 'NcPageMeta', isFullWithPage?: boolean | null } | null, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, sourceUrl?: string | null } } | null, editorBlocks?: Array<{ __typename: 'CoreArchives', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreAudio', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreAvatar', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreBlock', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreButton', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreButtons', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCalendar', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCategories', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCode', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | (
       { __typename: 'CoreColumn', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null }
       & { ' $fragmentRefs'?: { 'CoreColumnFragmentFragment': CoreColumnFragmentFragment } }
     ) | (
       { __typename: 'CoreColumns', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null }
       & { ' $fragmentRefs'?: { 'CoreColumnsFragmentFragment': CoreColumnsFragmentFragment } }
-    ) | { __typename: 'CoreCommentAuthorName', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentContent', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentDate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentEditLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentReplyLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentTemplate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPagination', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationNext', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationNumbers', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationPrevious', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCover', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreDetails', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreEmbed', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFile', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFootnotes', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFreeform', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreGallery', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreGroup', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHeading', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHomeLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHtml', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreImage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLatestComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLatestPosts', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLegacyWidget', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreList', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreListItem', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLoginout', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMediaText', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMissing', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMore', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigation', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigationLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigationSubmenu', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNextpage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePageList', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePageListItem', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreParagraph', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePattern', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthor', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthorBiography', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthorName', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostCommentsForm', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostContent', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostDate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostExcerpt', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostFeaturedImage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostNavigationLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTemplate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTerms', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePreformatted', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePullquote', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQuery', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryNoResults', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPagination', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationNext', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationNumbers', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationPrevious', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQuote', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreReadMore', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreRss', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSearch', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSeparator', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreShortcode', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteLogo', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteTagline', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSocialLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSocialLinks', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSpacer', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTable', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTagCloud', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTemplatePart', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTermDescription', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTextColumns', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreVerse', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreVideo', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreWidgetGroup', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MailpoetSubscriptionFormBlock', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MailpoetSubscriptionFormBlockRender', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MonsterinsightsPopularPostsInline', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MonsterinsightsPopularPostsWidget', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | (
+    ) | { __typename: 'CoreCommentAuthorName', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentContent', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentDate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentEditLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentReplyLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentTemplate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPagination', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationNext', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationNumbers', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsPaginationPrevious', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCommentsTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreCover', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreDetails', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreEmbed', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFile', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFootnotes', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreFreeform', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreGallery', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreGroup', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHeading', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHomeLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreHtml', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreImage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLatestComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLatestPosts', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLegacyWidget', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreList', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreListItem', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreLoginout', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMediaText', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMissing', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreMore', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigation', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigationLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNavigationSubmenu', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreNextpage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePageList', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePageListItem', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreParagraph', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePattern', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthor', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthorBiography', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostAuthorName', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostComments', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostCommentsForm', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostContent', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostDate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostExcerpt', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostFeaturedImage', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostNavigationLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTemplate', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTerms', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePostTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePreformatted', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CorePullquote', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQuery', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryNoResults', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPagination', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationNext', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationNumbers', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryPaginationPrevious', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQueryTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreQuote', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreReadMore', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreRss', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSearch', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSeparator', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreShortcode', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteLogo', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteTagline', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSiteTitle', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSocialLink', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSocialLinks', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreSpacer', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTable', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTagCloud', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTemplatePart', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTermDescription', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreTextColumns', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreVerse', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreVideo', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'CoreWidgetGroup', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MailpoetSubscriptionFormBlock', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | { __typename: 'MailpoetSubscriptionFormBlockRender', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | (
       { __typename: 'NcmazFaustBlockCta', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null }
       & { ' $fragmentRefs'?: { 'NcmazFaustBlockCtaFragmentFragment': NcmazFaustBlockCtaFragmentFragment } }
     ) | (
@@ -18315,7 +17973,7 @@ export type GetPageQuery = { __typename?: 'RootQuery', page?: { __typename?: 'Pa
     ) | (
       { __typename: 'NcmazFaustBlockTerms', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null }
       & { ' $fragmentRefs'?: { 'NcmazFaustBlockTermsFragmentFragment': NcmazFaustBlockTermsFragmentFragment } }
-    ) | { __typename: 'WpformsFormSelector', renderedHtml?: string | null, clientId?: string | null, parentClientId?: string | null } | null> | null } | null, generalSettings?: (
+    ) | null> | null } | null, generalSettings?: (
     { __typename?: 'GeneralSettings' }
     & { ' $fragmentRefs'?: { 'NcgeneralSettingsFieldsFragmentFragment': NcgeneralSettingsFieldsFragmentFragment } }
   ) | null, primaryMenuItems?: { __typename?: 'RootQueryToMenuItemConnection', nodes: Array<(

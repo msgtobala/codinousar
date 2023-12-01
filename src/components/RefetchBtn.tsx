@@ -1,3 +1,4 @@
+import getTrans from "@/utils/getTrans";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
 import React, { FC } from "react";
 
@@ -13,6 +14,7 @@ export const RefetchBtn: FC<Props> = ({
   children,
   ...props
 }) => {
+  const T = getTrans();
   return (
     <button
       type="button"
@@ -24,7 +26,7 @@ export const RefetchBtn: FC<Props> = ({
         className="-ml-0.5 mr-1.5 h-4 w-4"
         aria-hidden="true"
       />
-      {loading ? "Loading ..." : `Refetch`}
+      {loading ? T["Loading ..."] : T.Refetch}
     </button>
   );
 };

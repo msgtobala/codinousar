@@ -2,6 +2,7 @@ import ButtonSecondary from "@/components/Button/ButtonSecondary";
 import NcModal from "@/components/NcModal/NcModal";
 import React, { FC } from "react";
 import ButtonPrimary from "../Button/ButtonPrimary";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   show: boolean;
@@ -14,21 +15,27 @@ const ModalDraftPost: FC<Props> = ({ show, onCloseModal, onSubmit }) => {
     onSubmit();
   };
 
+  const T = getTrans();
+
   const renderContent = () => {
     return (
       <div>
         <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-200">
-          Draft this post
+          {T.pageSubmission["Draft this post"]}
         </h3>
         <span className="text-sm">
-          Post will be changed to draft. You can publish it later.
+          {
+            T.pageSubmission[
+              "Post will be changed to draft. You can publish it later."
+            ]
+          }
         </span>
         <div className="mt-4 space-x-3">
           <ButtonPrimary onClick={handleClickSubmitForm} type="submit">
-            Draft this post
+            {T.pageSubmission["Draft this post"]}
           </ButtonPrimary>
           <ButtonSecondary type="button" onClick={onCloseModal}>
-            Cancel
+            {T.Cancel}
           </ButtonSecondary>
         </div>
       </div>

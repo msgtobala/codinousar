@@ -6,6 +6,7 @@ import { NcmazFcTagShortFieldsFragmentFragment } from "@/__generated__/graphql";
 import ButtonPrimary from "../Button/ButtonPrimary";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { NC_SITE_SETTINGS } from "@/contains/site-settings";
+import getTrans from "@/utils/getTrans";
 
 const MAX_TAGS_LENGTH =
   NC_SITE_SETTINGS["submissions-settings"].max_tags_allowed || 5;
@@ -18,6 +19,8 @@ interface TagsInputProps {
 }
 
 const TagsInput: FC<TagsInputProps> = ({ onChange, defaultValue }) => {
+  const T = getTrans();
+
   const [queryGetTags, { loading, error, data, fetchMore, called }] =
     useLazyQuery(QUERY_GET_TAGS, {
       notifyOnNetworkStatusChange: true,
@@ -164,8 +167,8 @@ const TagsInput: FC<TagsInputProps> = ({ onChange, defaultValue }) => {
               type="text"
               placeholder={
                 !tags.length
-                  ? `Add tags (${tags.length}/${MAX_TAGS_LENGTH})...`
-                  : `Add tag (${tags.length}/${MAX_TAGS_LENGTH})`
+                  ? `${T.pageSubmission["Add tags"]} (${tags.length}/${MAX_TAGS_LENGTH})...`
+                  : `${T.pageSubmission["Add tag"]} (${tags.length}/${MAX_TAGS_LENGTH})`
               }
               onFocus={openPopover}
               onKeyDown={(e) => {
@@ -188,7 +191,7 @@ const TagsInput: FC<TagsInputProps> = ({ onChange, defaultValue }) => {
           ref={containerRef}
           className="absolute top-full space-y-5 mt-4 inset-x-0 p-5 bg-white dark:bg-neutral-800 shadow-lg rounded-2xl z-50 ring-1 ring-black/[0.03]"
         >
-          <h3 className="text-xl font-semibold">Tags</h3>
+          <h3 className="text-xl font-semibold">{T.Tags}</h3>
           <div className="w-full border-b border-neutral-300 dark:border-neutral-700" />
           {!!error && <p className="text-red-500">{error.message}</p>}
           {!!loading && !tagsData.length && <Loading />}
@@ -227,7 +230,7 @@ const TagsInput: FC<TagsInputProps> = ({ onChange, defaultValue }) => {
               <div className="w-full border-b border-neutral-300 dark:border-neutral-700" />
               <div className="flex justify-center ">
                 <ButtonPrimary loading={loading} onClick={handleClickShowMore}>
-                  Load more tags
+                  {T.pageSubmission["Load more tags"]}
                 </ButtonPrimary>
               </div>
             </>

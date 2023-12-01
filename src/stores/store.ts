@@ -2,8 +2,6 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./counter/counterSlice";
 import viewerSlice from "./viewer/viewerSlice";
 import logger from "redux-logger";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import generalSettingsSlice from "./genneral-settings/generalSettingsSlice";
 import localPostsSavedListSlice from "./localPostSavedList/localPostsSavedListSlice";
 import postsNcmazMetaDataOkSlice from "./postsNcmazMetaDataOk/postsNcmazMetaDataOkSlice";
@@ -16,16 +14,8 @@ const rootReducer = combineReducers({
   postsNcmazMetaDataOk: postsNcmazMetaDataOkSlice,
 });
 
-const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["counter", "localPostSavedList"],
-};
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   //
   middleware:
     process.env.NODE_ENV !== "production"
@@ -33,8 +23,6 @@ export const store = configureStore({
       : undefined,
   devTools: process.env.NODE_ENV !== "production",
 });
-
-export const persistor = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;

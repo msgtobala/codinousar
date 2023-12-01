@@ -1,12 +1,17 @@
 import { getWordPressProps, WordPressTemplate } from "@faustwp/core";
 import { GetStaticProps } from "next";
 import { WordPressTemplateProps } from "../types";
+import { IS_CHISNGHIAX_DEMO_SITE } from "@/contains/site-settings";
 
 export default function Page(props: WordPressTemplateProps) {
   return <WordPressTemplate {...props} />;
 }
 
-export async function getStaticPaths() {
+export async function myGetPaths() {
+  if (!IS_CHISNGHIAX_DEMO_SITE) {
+    return [];
+  }
+
   const response = await fetch(
     process.env.NEXT_PUBLIC_WORDPRESS_URL?.replace(/\/$/, "") +
       "/wp-json/wp/v2/posts?per_page=50&_fields=slug"
@@ -36,10 +41,16 @@ export async function getStaticPaths() {
     { slug: "home-6" },
   ];
 
+  return posts.map((page) => ({
+    params: { wordpressNode: [page.slug] },
+  }));
+}
+
+export async function getStaticPaths() {
+  const paths = await myGetPaths();
+
   return {
-    paths: posts.map((page) => ({
-      params: { wordpressNode: [page.slug] },
-    })),
+    paths,
     fallback: "blocking",
   };
 }

@@ -15,6 +15,7 @@ import Iframe from "./Iframe";
 //
 import MenuBar from "./MenuBar";
 import MyBubbleMenu from "./MyBubbleMenu";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   onUpdate: (editor: Editor) => void;
@@ -22,6 +23,8 @@ interface Props {
 }
 
 const TiptapEditor: FC<Props> = ({ onUpdate, defaultContent = "" }) => {
+  const T = getTrans();
+
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -36,7 +39,7 @@ const TiptapEditor: FC<Props> = ({ onUpdate, defaultContent = "" }) => {
         openOnClick: false,
       }),
       Placeholder.configure({
-        placeholder: "Write your post content here…",
+        placeholder: T.pageSubmission["Write your post content here…"],
         showOnlyCurrent: false,
       }),
       TextAlign.configure({

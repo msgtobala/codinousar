@@ -1,7 +1,8 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { useEditor, EditorContent, Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
+import getTrans from "@/utils/getTrans";
 
 interface Props {
   onUpdate: (editor: Editor) => void;
@@ -9,11 +10,12 @@ interface Props {
 }
 
 const TitleEditor: FC<Props> = ({ onUpdate, defaultTitle = "" }) => {
+  const T = getTrans();
   const editor = useEditor({
     extensions: [
       StarterKit,
       Placeholder.configure({
-        placeholder: "New post title here…",
+        placeholder: T.pageSubmission["New post title here…"],
       }),
     ],
     editorProps: {

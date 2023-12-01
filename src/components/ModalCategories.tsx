@@ -11,11 +11,14 @@ import { QUERY_GET_CATEGORIES } from "@/fragments/queries";
 import { NcmazFcCategoryFullFieldsFragmentFragment } from "@/__generated__/graphql";
 import errorHandling from "@/utils/errorHandling";
 import GraphqlError from "./GraphqlError";
+import getTrans from "@/utils/getTrans";
 
 export interface ModalCategoriesProps {}
 
 const ModalCategories: FC<ModalCategoriesProps> = () => {
   const [refetchTimes, setRefetchTimes] = React.useState(0);
+
+  const T = getTrans();
 
   const [queryGetCategories, { loading, error, data, fetchMore, refetch }] =
     useLazyQuery(QUERY_GET_CATEGORIES, {
@@ -99,7 +102,7 @@ const ModalCategories: FC<ModalCategoriesProps> = () => {
         {data?.categories?.pageInfo.hasNextPage ? (
           <div className="mt-7 flex justify-center">
             <ButtonPrimary loading={loading} onClick={handleClickShowMore}>
-              Show me more
+              {T["Show me more"]}
             </ButtonPrimary>
           </div>
         ) : null}
@@ -160,7 +163,8 @@ const ModalCategories: FC<ModalCategoriesProps> = () => {
             </svg>
 
             <div>
-              <span className="hidden sm:inline">Other</span> Categories
+              <span className="hidden sm:inline">{T["Other categories"]}</span>
+              <span className="inline sm:hidden">{T.Categories}</span>
             </div>
             <ChevronDownIcon
               className="w-4 h-4 ms-2 -me-1"
@@ -168,7 +172,7 @@ const ModalCategories: FC<ModalCategoriesProps> = () => {
             />
           </Button>
         )}
-        modalTitle="Discover other categories"
+        modalTitle={T["Discover other categories"]}
         renderContent={renderModalContent}
         enableFooter={false}
       />
