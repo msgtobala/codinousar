@@ -32,7 +32,7 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
     QUERY_GET_POSTS_BY,
     {
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET" } },
+      context: { fetchOptions: { method: "GET", mode: 'no-cors' } },
       variables: {
         first: 20,
       },

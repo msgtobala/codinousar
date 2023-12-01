@@ -52,7 +52,7 @@ export default function useHandleGetPostsArchivePage(props: Props) {
         first: GET_POSTS_FIRST_COMMON,
       },
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET" } },
+      context: { fetchOptions: { method: "GET", mode: 'no-cors' } },
       onError: (error) => {
         if (refetchTimes > 3) {
           errorHandling(error);
