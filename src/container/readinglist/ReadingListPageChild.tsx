@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { GetReadingListPageQuery } from "../../__generated__/graphql";
-import { FaustPage } from "@faustwp/core";
-import { useSelector } from "react-redux";
-import { RootState } from "@/stores/store";
-import { useLazyQuery } from "@apollo/client";
-import { useEffect, useState } from "react";
-import Empty from "@/components/Empty";
-import ButtonPrimary from "@/components/Button/ButtonPrimary";
-import Card3 from "@/components/Card3/Card3";
-import updatePostFromUpdateQuery from "@/utils/updatePostFromUpdateQuery";
-import Card3Skeleton from "@/components/Card3/Card3Skeleton";
-import { QUERY_GET_POSTS_BY } from "@/fragments/queries";
-import { PostDataFragmentType } from "@/data/types";
-import errorHandling from "@/utils/errorHandling";
-import GraphqlError from "@/components/GraphqlError";
-import getTrans from "@/utils/getTrans";
+import { GetReadingListPageQuery } from '../../__generated__/graphql';
+import { FaustPage } from '@faustwp/core';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/stores/store';
+import { useLazyQuery } from '@apollo/client';
+import { useEffect, useState } from 'react';
+import Empty from '@/components/Empty';
+import ButtonPrimary from '@/components/Button/ButtonPrimary';
+import Card3 from '@/components/Card3/Card3';
+import updatePostFromUpdateQuery from '@/utils/updatePostFromUpdateQuery';
+import Card3Skeleton from '@/components/Card3/Card3Skeleton';
+import { QUERY_GET_POSTS_BY } from '@/fragments/queries';
+import { PostDataFragmentType } from '@/data/types';
+import errorHandling from '@/utils/errorHandling';
+import GraphqlError from '@/components/GraphqlError';
+import getTrans from '@/utils/getTrans';
 
 //
 
@@ -32,7 +32,12 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
     QUERY_GET_POSTS_BY,
     {
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET", mode: 'no-cors' } },
+      context: {
+        fetchOptions: { method: 'GET' },
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
       variables: {
         first: 20,
       },
@@ -75,7 +80,7 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
     // phan nay danh cho user da dang nhap
     if (viewerReactionPosts?.length) {
       ids = viewerReactionPosts.map((item) =>
-        (item.title || "").split(",")[0].trim()
+        (item.title || '').split(',')[0].trim()
       );
     }
 
@@ -133,7 +138,7 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
   if (!!isAuthenticated) {
     currentPosts = currentPosts.filter((post) => {
       return viewerReactionPosts?.some((item) => {
-        return item.title?.includes(post.databaseId + ",SAVE");
+        return item.title?.includes(post.databaseId + ',SAVE');
       });
     });
   }
@@ -193,7 +198,7 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
       {hasNextPage ? (
         <div className="mt-12 lg:mt-16 flex justify-center">
           <ButtonPrimary loading={loading} onClick={handleClickLoadmore}>
-            {T["Show me more"]}
+            {T['Show me more']}
           </ButtonPrimary>
         </div>
       ) : null}
