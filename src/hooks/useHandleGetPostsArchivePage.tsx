@@ -53,7 +53,7 @@ export default function useHandleGetPostsArchivePage(props: Props) {
       },
       notifyOnNetworkStatusChange: true,
       context: {
-        fetchOptions: { method: 'GET', mode: 'no-cors' },
+        fetchOptions: { method: 'GET' },
         headers: {
           'Access-Control-Allow-Origin': '*',
         },
