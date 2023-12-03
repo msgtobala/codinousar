@@ -36,7 +36,7 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
         fetchOptions: {
           method: 'GET',
           headers: {
-            'Access-Control-Allow-Origin': 'https://www.codinousar.com',
+            'Access-Control-Allow-Origin': 'https://www.codinousar.site',
           },
         },
       },

@@ -69,7 +69,7 @@ const NcmazFaustBlockMagazineClient: WordPressBlock<
       context: {
         fetchOptions: { method: 'GET' },
         headers: {
-          'Access-Control-Allow-Origin': 'https://www.codinousar.com',
+          'Access-Control-Allow-Origin': 'https://www.codinousar.site',
         },
       },
       onError: (error) => {
