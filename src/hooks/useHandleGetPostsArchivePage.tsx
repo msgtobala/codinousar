@@ -1,14 +1,14 @@
 import {
   OrderEnum,
   PostObjectsConnectionOrderbyEnum,
-} from "@/__generated__/graphql";
-import { FILTERS_OPTIONS, GET_POSTS_FIRST_COMMON } from "@/contains/contants";
-import { PostDataFragmentType } from "@/data/types";
-import { QUERY_GET_POSTS_BY } from "@/fragments/queries";
-import errorHandling from "@/utils/errorHandling";
-import updatePostFromUpdateQuery from "@/utils/updatePostFromUpdateQuery";
-import { useLazyQuery } from "@apollo/client";
-import React, { useEffect, useState } from "react";
+} from '@/__generated__/graphql';
+import { FILTERS_OPTIONS, GET_POSTS_FIRST_COMMON } from '@/contains/contants';
+import { PostDataFragmentType } from '@/data/types';
+import { QUERY_GET_POSTS_BY } from '@/fragments/queries';
+import errorHandling from '@/utils/errorHandling';
+import updatePostFromUpdateQuery from '@/utils/updatePostFromUpdateQuery';
+import { useLazyQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
   initPosts?: PostDataFragmentType[] | null;
@@ -52,7 +52,12 @@ export default function useHandleGetPostsArchivePage(props: Props) {
         first: GET_POSTS_FIRST_COMMON,
       },
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET" } },
+      context: {
+        fetchOptions: { method: 'GET' },
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
       onError: (error) => {
         if (refetchTimes > 3) {
           errorHandling(error);
@@ -70,7 +75,7 @@ export default function useHandleGetPostsArchivePage(props: Props) {
       return false;
     }
 
-    const [field, order] = routerQueryFilter?.split("/");
+    const [field, order] = routerQueryFilter?.split('/');
     return {
       field: field as PostObjectsConnectionOrderbyEnum,
       order: order as OrderEnum,
@@ -90,7 +95,7 @@ export default function useHandleGetPostsArchivePage(props: Props) {
     queryGetPostsByCategoryId({
       variables: {
         first: GET_POSTS_FIRST_COMMON,
-        after: "",
+        after: '',
         field: fiterValue.field,
         order: fiterValue.order,
       },
@@ -134,7 +139,7 @@ export default function useHandleGetPostsArchivePage(props: Props) {
   ];
 
   // hien thi init posts khi lan dau tien click vao filter mac dinh la DATE/DESC
-  if (!currentPosts.length && loading && filterParam === "DATE/DESC") {
+  if (!currentPosts.length && loading && filterParam === 'DATE/DESC') {
     currentPosts = posts || [];
   }
 
