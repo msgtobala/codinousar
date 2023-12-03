@@ -37,6 +37,8 @@ const ReadingListPageChild: FaustPage<GetReadingListPageQuery> = (props) => {
           method: 'GET',
           headers: {
             'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods':
+            'PUT, GET, HEAD, POST, DELETE, OPTIONS',
           },
         },
       },
