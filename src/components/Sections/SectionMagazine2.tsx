@@ -9,7 +9,7 @@ export interface SectionMagazine2Props extends SectionMagazine1Props {}
 
 const SectionMagazine2: FC<SectionMagazine2Props> = ({ posts, className }) => {
   const { width } = useWindowSize();
-  const isMobile = width < 640;
+  const isMobile = width < 1280;
   
   return (
     <div className={`nc-SectionMagazine2 ${className}`}>
