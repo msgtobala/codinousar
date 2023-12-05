@@ -67,12 +67,7 @@ const NcmazFaustBlockMagazineClient: WordPressBlock<
     useLazyQuery(QUERY_GET_POSTS_BY, {
       notifyOnNetworkStatusChange: true,
       context: {
-        fetchOptions: { method: 'GET' },
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods':
-            'PUT, GET, HEAD, POST, DELETE, OPTIONS',
-        },
+        method: process.env.NEXT_PUBLIC_SITE_API_METHOD || "GET",
       },
       onError: (error) => {
         errorHandling(error);

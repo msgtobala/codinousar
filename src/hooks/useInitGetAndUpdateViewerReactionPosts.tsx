@@ -39,7 +39,7 @@ export default function useInitGetAndUpdateViewerReactionPosts() {
   // useLazyQuery get reaction posts of current viewer
   const getSaved = useQuery(GET_ALL_REACTION_POSTS_BY_USER_AND_REACTION, {
     client,
-    context: { fetchOptions: { method: "GET" } },
+    context: { method: process.env.NEXT_PUBLIC_SITE_API_METHOD || "GET", },
     variables: {
       search: "SAVE",
       first: GET_USER_REACTION_POSTS_FIRST_COMMON,
@@ -63,7 +63,7 @@ export default function useInitGetAndUpdateViewerReactionPosts() {
 
   const getLiked = useQuery(GET_ALL_REACTION_POSTS_BY_USER_AND_REACTION, {
     client,
-    context: { fetchOptions: { method: "GET" } },
+    context: { method: process.env.NEXT_PUBLIC_SITE_API_METHOD || "GET", },
     variables: {
       search: "LIKE",
       first: GET_USER_REACTION_POSTS_FIRST_COMMON,

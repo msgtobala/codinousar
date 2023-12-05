@@ -53,11 +53,8 @@ export default function useHandleGetPostsArchivePage(props: Props) {
       },
       notifyOnNetworkStatusChange: true,
       context: {
-        fetchOptions: { method: 'GET' },
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods':
-          'PUT, GET, HEAD, POST, DELETE, OPTIONS',
+        fetchOptions: {
+          method: process.env.NEXT_PUBLIC_SITE_API_METHOD || 'GET',
         },
       },
       onError: (error) => {

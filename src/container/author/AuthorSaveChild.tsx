@@ -1,27 +1,27 @@
-import { FaustPage } from "@faustwp/core";
+import { FaustPage } from '@faustwp/core';
 import {
   NcgeneralSettingsFieldsFragmentFragment,
   NcmazFcPostFullFieldsFragment,
   PageAuthorBookmarksGetDataQuery,
-} from "@/__generated__/graphql";
-import React from "react";
-import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
-import SectionTrendingTopic from "@/components/SectionTrendingTopic";
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import updatePostFromUpdateQuery from "@/utils/updatePostFromUpdateQuery";
-import { QUERY_GET_POSTS_BY_USER_REACTION } from "@/fragments/queries";
-import { getUserDataFromUserCardFragment } from "@/utils/getUserDataFromUserCardFragment";
-import PageLayout from "@/container/PageLayout";
-import { getImageDataFromImageFragment } from "@/utils/getImageDataFromImageFragment";
-import GridPostsArchive from "@/components/GridPostsArchive";
-import errorHandling from "@/utils/errorHandling";
-import { TCategoryCardFull } from "@/components/CardCategory1/CardCategory1";
-import AuthorLayout from "@/container/AuthorPageLayout";
-import Tab from "@/container/AuthorPageTab";
-import { useSelector } from "react-redux";
-import { RootState } from "@/stores/store";
-import GraphqlError from "@/components/GraphqlError";
+} from '@/__generated__/graphql';
+import React from 'react';
+import SectionSubscribe2 from '@/components/SectionSubscribe2/SectionSubscribe2';
+import SectionTrendingTopic from '@/components/SectionTrendingTopic';
+import { useQuery } from '@apollo/client';
+import { useRouter } from 'next/router';
+import updatePostFromUpdateQuery from '@/utils/updatePostFromUpdateQuery';
+import { QUERY_GET_POSTS_BY_USER_REACTION } from '@/fragments/queries';
+import { getUserDataFromUserCardFragment } from '@/utils/getUserDataFromUserCardFragment';
+import PageLayout from '@/container/PageLayout';
+import { getImageDataFromImageFragment } from '@/utils/getImageDataFromImageFragment';
+import GridPostsArchive from '@/components/GridPostsArchive';
+import errorHandling from '@/utils/errorHandling';
+import { TCategoryCardFull } from '@/components/CardCategory1/CardCategory1';
+import AuthorLayout from '@/container/AuthorPageLayout';
+import Tab from '@/container/AuthorPageTab';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/stores/store';
+import GraphqlError from '@/components/GraphqlError';
 
 const AuthorSaveChild: FaustPage<PageAuthorBookmarksGetDataQuery> = (props) => {
   const { user } = props.data || {};
@@ -37,15 +37,19 @@ const AuthorSaveChild: FaustPage<PageAuthorBookmarksGetDataQuery> = (props) => {
   const [refetchTimes, setRefetchTimes] = React.useState(0);
 
   // useLazyQuery get reading list posts
-  const inUserAndReaction = routerQuerySlug + "/SAVE";
+  const inUserAndReaction = routerQuerySlug + '/SAVE';
   const _onlyNeedCacheFirst = routerQuerySlug !== viewer?.slug;
   const { loading, data, refetch, error, fetchMore } = useQuery(
     QUERY_GET_POSTS_BY_USER_REACTION,
     {
       notifyOnNetworkStatusChange: true,
       skip: !routerQuerySlug,
-      context: { fetchOptions: { method: "GET" } },
-      fetchPolicy: _onlyNeedCacheFirst ? "cache-first" : "cache-and-network",
+      context: {
+        fetchOptions: {
+          method: process.env.NEXT_PUBLIC_SITE_API_METHOD || 'GET',
+        },
+      },
+      fetchPolicy: _onlyNeedCacheFirst ? 'cache-first' : 'cache-and-network',
       variables: {
         first: 20,
         inUserAndReaction,

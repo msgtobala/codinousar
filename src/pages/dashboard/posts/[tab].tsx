@@ -64,7 +64,7 @@ const Page: FaustPage<{}> = () => {
         first: GET_POSTS_FIRST_COMMON_FOR_DASHBOARD,
       },
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET" } },
+      context: { method: process.env.NEXT_PUBLIC_SITE_API_METHOD || "GET", },
       onError: (error) => {
         if (refetchTimes > 3) {
           errorHandling(error);

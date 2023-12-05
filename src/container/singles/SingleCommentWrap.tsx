@@ -5,30 +5,30 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import SingleCommentLists from "./SingleCommentLists";
-import SingleCommentForm from "./SingleCommentForm";
-import ModalDeleteComment from "./ModalDeleteComment";
-import ModalEditComment from "./ModalEditComment";
-import { flatListToHierarchical, getApolloAuthClient } from "@faustwp/core";
-import { RootState } from "@/stores/store";
-import { useSelector } from "react-redux";
+} from 'react';
+import SingleCommentLists from './SingleCommentLists';
+import SingleCommentForm from './SingleCommentForm';
+import ModalDeleteComment from './ModalDeleteComment';
+import ModalEditComment from './ModalEditComment';
+import { flatListToHierarchical, getApolloAuthClient } from '@faustwp/core';
+import { RootState } from '@/stores/store';
+import { useSelector } from 'react-redux';
 import {
   QUERY_GET_COMMENTS_BY_POST_ID,
   QUERY_MUTATION_CREATE_COMMENT,
   QUERY_MUTATION_DELETE_COMMENT_BY_ID,
   QUERY_MUTATION_UPDATE_COMMENT_BY_ID,
-} from "@/fragments/queries";
-import { useMutation, useQuery } from "@apollo/client";
-import { TCommentHasChild } from "@/components/CommentCard/CommentCard";
-import toast from "react-hot-toast";
+} from '@/fragments/queries';
+import { useMutation, useQuery } from '@apollo/client';
+import { TCommentHasChild } from '@/components/CommentCard/CommentCard';
+import toast from 'react-hot-toast';
 import {
   CommentStatusEnum,
   NcmazFcCommentFullFieldsFragment,
-} from "@/__generated__/graphql";
-import errorHandling from "@/utils/errorHandling";
-import GraphqlError from "@/components/GraphqlError";
-import getTrans from "@/utils/getTrans";
+} from '@/__generated__/graphql';
+import errorHandling from '@/utils/errorHandling';
+import GraphqlError from '@/components/GraphqlError';
+import getTrans from '@/utils/getTrans';
 
 export const CommentWrapContext = createContext<{
   isReplyingDatabaseId?: number | null;
@@ -101,9 +101,13 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
   const { data, fetchMore, loading, error, called, refetch } = useQuery(
     QUERY_GET_COMMENTS_BY_POST_ID,
     {
-      fetchPolicy: "cache-and-network",
+      fetchPolicy: 'cache-and-network',
       notifyOnNetworkStatusChange: true,
-      context: { fetchOptions: { method: "GET" } },
+      context: {
+        fetchOptions: {
+          method: process.env.NEXT_PUBLIC_SITE_API_METHOD || 'GET',
+        },
+      },
       variables: {
         first: 40,
         contentId: postDatabaseId.toString(),
@@ -168,7 +172,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     }
 
     if (deleteCommentsByIdResult.loading) {
-      toast.loading("Deleting comment...");
+      toast.loading('Deleting comment...');
       return;
     }
 
@@ -182,7 +186,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
     if (deleteCommentsByIdResult.data) {
       toast.dismiss();
-      toast.success("Delete comment successfully");
+      toast.success('Delete comment successfully');
       setDeletedCommentIds([
         ...deletedCommentIds,
         deleteCommentsByIdResult.data?.deleteComment?.comment?.databaseId || 0,
@@ -200,7 +204,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     }
 
     if (createNewCommentsResult.loading) {
-      toast.loading("Creating comment...");
+      toast.loading('Creating comment...');
       return;
     }
 
@@ -210,7 +214,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     ) {
       toast.dismiss();
       toast.error(
-        createNewCommentsResult?.error?.message || "Create comment failed"
+        createNewCommentsResult?.error?.message || 'Create comment failed'
       );
       createNewCommentsResult.reset();
       return;
@@ -218,7 +222,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
     if (createNewCommentsResult.data) {
       toast.dismiss();
-      toast.success("Create comment successfully");
+      toast.success('Create comment successfully');
       const newCreated = createNewCommentsResult.data?.createComment
         ?.comment as TCommentHasChild;
       if (
@@ -232,12 +236,12 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
             `comment-${newCreated.databaseId}`
           );
           newNode?.scrollIntoView({
-            behavior: "auto",
-            block: "nearest",
+            behavior: 'auto',
+            block: 'nearest',
           });
           (
-            newNode?.querySelector(".nc-CommentCard__box") as HTMLElement | null
-          )?.classList.add("ring", "ring-inset");
+            newNode?.querySelector('.nc-CommentCard__box') as HTMLElement | null
+          )?.classList.add('ring', 'ring-inset');
         }, 500);
       }
       createNewCommentsResult.reset();
@@ -252,7 +256,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     }
 
     if (createNewReplyCommentsResult.loading) {
-      toast.loading("Replying comment...");
+      toast.loading('Replying comment...');
       return;
     }
 
@@ -262,7 +266,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     ) {
       toast.dismiss();
       toast.error(
-        createNewReplyCommentsResult?.error?.message || "Reply comment failed"
+        createNewReplyCommentsResult?.error?.message || 'Reply comment failed'
       );
       createNewReplyCommentsResult.reset();
       return;
@@ -270,7 +274,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
     if (createNewReplyCommentsResult.data) {
       toast.dismiss();
-      toast.success("Reply comment successfully");
+      toast.success('Reply comment successfully');
       const newCreated = createNewReplyCommentsResult.data?.createComment
         ?.comment as TCommentHasChild;
       if (
@@ -284,12 +288,12 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
             `comment-${newCreated.databaseId}`
           );
           newNode?.scrollIntoView({
-            behavior: "auto",
-            block: "nearest",
+            behavior: 'auto',
+            block: 'nearest',
           });
           (
-            newNode?.querySelector(".nc-CommentCard__box") as HTMLElement | null
-          )?.classList.add("ring", "ring-inset");
+            newNode?.querySelector('.nc-CommentCard__box') as HTMLElement | null
+          )?.classList.add('ring', 'ring-inset');
         }, 500);
       }
       setIsOpenReplyFormWithId(null);
@@ -305,7 +309,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     }
 
     if (updateCommentByIdResult.loading) {
-      toast.loading("Updating comment...");
+      toast.loading('Updating comment...');
       return;
     }
 
@@ -315,7 +319,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     ) {
       toast.dismiss();
       toast.error(
-        updateCommentByIdResult?.error?.message || "Updating comment failed"
+        updateCommentByIdResult?.error?.message || 'Updating comment failed'
       );
       updateCommentByIdResult.reset();
       return;
@@ -323,7 +327,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
     if (updateCommentByIdResult.data) {
       toast.dismiss();
-      toast.success("Update comment successfully");
+      toast.success('Update comment successfully');
       const newUpdated = updateCommentByIdResult.data?.updateComment
         ?.comment as TCommentHasChild;
 
@@ -375,7 +379,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
 
   const handleSubmitCommentForm = (data: string) => {
     if (!isAuthenticated || !viewer?.databaseId) {
-      toast.error(T.pageSingle["You must login to comment"]);
+      toast.error(T.pageSingle['You must login to comment']);
       return;
     }
 
@@ -392,7 +396,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     data: string;
   }) => {
     if (!isAuthenticated || !viewer?.databaseId) {
-      toast.error(T.pageSingle["You must login to comment"]);
+      toast.error(T.pageSingle['You must login to comment']);
       return;
     }
     data.comment.parentDatabaseId &&
@@ -435,7 +439,7 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
           parentId:
             dataActual.find((item) => item.databaseId === isOpenReplyFormWithId)
               ?.id || null,
-          content: "",
+          content: '',
           author: {
             node: viewer,
           },
@@ -449,8 +453,8 @@ const SingleCommentWrap: FC<SingleCommentWrapProps> = ({
     );
 
     const aDataHierarchical = flatListToHierarchical(dataActual, {
-      idKey: "id",
-      parentKey: "parentId",
+      idKey: 'id',
+      parentKey: 'parentId',
     }) as TCommentHasChild[];
 
     return {
