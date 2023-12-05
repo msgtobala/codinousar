@@ -96,7 +96,9 @@ export default function DashboardLayout({ children }: Props) {
   const userRole = viewer?.roles?.edges[0].node.name ?? undefined;
   const canEdit =
     userRole !== undefined && userRole.toLocaleLowerCase() !== 'subscriber';
-  const filteredNavigation = navigation.filter((_, i) => i !== 0);
+  const filteredNavigation = canEdit
+    ? navigation
+    : navigation.filter((_, i) => i !== 0);
 
   const renderItem = (item: NavigationItem) => {
     const isCurrent = item.name === currentTab;
