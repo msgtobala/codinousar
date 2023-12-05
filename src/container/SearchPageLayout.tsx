@@ -1,8 +1,6 @@
 "use client";
 import ArchiveFilterListBox from "@/components/ArchiveFilterListBox/ArchiveFilterListBox";
 import Input from "@/components/Input/Input";
-import SectionSubscribe2 from "@/components/SectionSubscribe2/SectionSubscribe2";
-import SectionTrendingTopic from "@/components/SectionTrendingTopic";
 import { FILTERS_OPTIONS } from "@/contains/contants";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,6 +8,7 @@ import React, { FC } from "react";
 import Tab from "./SearchPageTab";
 import { TCategoryCardFull } from "@/components/CardCategory1/CardCategory1";
 import getTrans from "@/utils/getTrans";
+import SectionBecomeAnAuthor from "@/components/SectionBecomeAnAuthor/SectionBecomeAnAuthor";
 
 interface Props {
   children: React.ReactNode;
@@ -134,12 +133,7 @@ const SearchPageLayout: FC<Props> = ({
 
           {children}
         </main>
-
-        {/* === SECTION 5 === */}
-        <SectionTrendingTopic categories={top10Categories || []} />
-
-        {/* SUBCRIBES */}
-        <SectionSubscribe2 />
+        <SectionBecomeAnAuthor />
       </div>
     </div>
   );
