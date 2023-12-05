@@ -65,7 +65,7 @@ export default class Document extends NextDocument {
             href={v("/favicons/safari-pinned-tab.svg")}
             color="#38bdf8"
           />
-          <link rel="shortcut icon" href={v("/favicon.ico")} />
+          <link rel="shortcut icon" href={v("/favicons/favicon.ico")} />
           <meta name="apple-mobile-web-app-title" content="Ncmaz Nextjs" />
           <meta name="application-name" content="Ncmaz Nextjs" />
           <meta name="theme-color" content="#172A53" />
