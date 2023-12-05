@@ -130,7 +130,6 @@ const SearchPageLayout: FC<Props> = ({
               </div>
             ) : null}
           </div>
-
           {children}
         </main>
         <SectionBecomeAnAuthor />

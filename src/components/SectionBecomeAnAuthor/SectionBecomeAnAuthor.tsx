@@ -32,9 +32,10 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
       </div>
       <div className="flex-grow">
         <MyImage
-          alt="hero"
+          alt="hero-image"
           sizes="(max-width: 768px) 100vw, 50vw"
           src={rightImg}
+          className="w-full h-full"
         />
       </div>
     </div>
