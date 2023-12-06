@@ -70,7 +70,6 @@ const ArchiveLayout: FC<IArchiveLayoutProps> = ({
         {/* HEADER */}
         {children}
         {/* ====================== END HEADER ====================== */}
-
         <div className="container pt-10 pb-16 lg:pb-28 lg:pt-20 space-y-16 lg:space-y-28">
           <div>
             <div className="flex flex-col md:justify-between md:flex-row">
@@ -86,7 +85,6 @@ const ArchiveLayout: FC<IArchiveLayoutProps> = ({
                 />
               </div>
             </div>
-
             <GridPostsArchive
               posts={currentPosts}
               loading={loading}
@@ -94,12 +92,6 @@ const ArchiveLayout: FC<IArchiveLayoutProps> = ({
               onClickLoadmore={handleClickShowMore}
             />
           </div>
-
-          {/* MORE SECTIONS */}
-          <DynamicSectionTrendingTopic categories={top10Categories} />
-
-          {/* SUBCRIBES */}
-          <DynamicSectionSubscribe2 />
         </div>
       </div>
     </div>
