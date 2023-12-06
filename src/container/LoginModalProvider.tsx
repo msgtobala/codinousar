@@ -141,6 +141,7 @@ const LoginModalProvider: FC<LoginModalProviderProps> = ({ children }) => {
                   <Input
                     id="password"
                     type="password"
+                    placeholder="Password"
                     required
                     defaultValue={IS_CHISNGHIAX_DEMO_SITE ? "demo" : undefined}
                   />

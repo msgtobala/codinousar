@@ -2,6 +2,7 @@ export default {
   Email: "Email",
   "Email and password are required!": "Email and password are required!",
   "Enter your email": "Enter your email",
+  "Enter your password": "Enter your password",
   Password: "Password",
   "Sign up": "Sign up",
   "Already have an account?": "Already have an account?",

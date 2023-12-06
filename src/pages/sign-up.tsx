@@ -105,6 +105,7 @@ export default function Login() {
                 <Input
                   id="password"
                   type="password"
+                  placeholder={T["Enter your password"]}
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />

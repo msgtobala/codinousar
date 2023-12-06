@@ -21,12 +21,11 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
           supper change your planning powers
         </span>
         <h2 className="font-semibold text-3xl sm:text-4xl mt-3">
-          Become an author and share your great stories
+          Become an author and share your great articles
         </h2>
         <span className="block mt-8 text-neutral-500 dark:text-neutral-400">
-          Become an author you can earn extra income by writing articles. Read
-          and share new perspectives on just about any topic. Everyone’s
-          welcome.
+          Become an author. Read and share new perspectives on just about any technologies. Everyone’s
+          welcomed.
         </span>
         <ButtonPrimary className="mt-8">Become an author</ButtonPrimary>
       </div>
