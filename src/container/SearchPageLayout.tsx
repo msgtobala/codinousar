@@ -93,21 +93,21 @@ const SearchPageLayout: FC<Props> = ({
             <p>{T.pageSearch.Recommended}: </p>
             <Link
               className="hover:underline underline-offset-2"
-              href={"/search/posts/programming"}
+              href={"/search/posts/javascript"}
             >
-              Programming
+              Javascript
             </Link>
             <Link
               className="hover:underline underline-offset-2"
-              href={"/search/posts/design"}
+              href={"/search/posts/react"}
             >
-              Design
+              React
             </Link>
             <Link
               className="hover:underline underline-offset-2"
-              href={"/search/posts/technology"}
+              href={"/search/posts/flutter"}
             >
-              Technology
+              Flutter
             </Link>
           </div>
         </header>

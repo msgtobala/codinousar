@@ -5,10 +5,10 @@
   "subcription_widget": {
     "enable": true,
     "title": "Stay up to date",
-    "description": "Get notified when I publish something new, and unsubscribe at any time.",
+    "description": "Get notified when we publish something new, and unsubscribe at any time.",
     "placeholder": "Enter your email address",
     "success_message": "Thank you for subscribing. You're in!",
-    "error_message": "Something went wrong. Please try again. If the problem persists, you can contact me."
+    "error_message": "Something went wrong. Please try again. If the problem persists, you can contact us."
   },
   "newsletter_section": {
     "enable": true,
