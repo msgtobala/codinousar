@@ -45,7 +45,7 @@ const Category: FaustTemplate<PageCategoryGetCategoryQuery> = (props) => {
       headerMenuItems={props.data?.primaryMenuItems?.nodes || []}
       footerMenuItems={props.data?.footerMenuItems?.nodes || []}
       pageFeaturedImageUrl={featuredImageMeta?.sourceUrl}
-      pageTitle={"Category " + name}
+      pageTitle={name}
       pageDescription={description || ""}
       generalSettings={
         props.data?.generalSettings as NcgeneralSettingsFieldsFragmentFragment

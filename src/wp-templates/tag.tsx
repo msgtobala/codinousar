@@ -37,7 +37,7 @@ const Tag: FaustTemplate<PageTagGetTagQuery> = (props) => {
         headerMenuItems={props.data?.primaryMenuItems?.nodes || []}
         footerMenuItems={props.data?.footerMenuItems?.nodes || []}
         pageFeaturedImageUrl={null}
-        pageTitle={"Tag " + name}
+        pageTitle={name}
         pageDescription={description || ""}
         generalSettings={
           props.data?.generalSettings as NcgeneralSettingsFieldsFragmentFragment

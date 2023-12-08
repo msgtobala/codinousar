@@ -28,7 +28,6 @@ export default function SEO({ title, description, imageUrl, url }: Props) {
       <Head>
         <meta property="og:type" content="website" />
         <meta property="twitter:card" content="summary_large_image" />
-
         {title && (
           <>
             <title>{title}</title>
@@ -37,7 +36,6 @@ export default function SEO({ title, description, imageUrl, url }: Props) {
             <meta property="twitter:title" content={title} />
           </>
         )}
-
         {description && (
           <>
             <meta name="description" content={description} />
@@ -45,14 +43,12 @@ export default function SEO({ title, description, imageUrl, url }: Props) {
             <meta property="twitter:description" content={description} />
           </>
         )}
-
         {imageUrl && (
           <>
             <meta property="og:image" content={imageUrl} />
             <meta property="twitter:image" content={imageUrl} />
           </>
         )}
-
         {url && (
           <>
             <meta property="og:url" content={url} />

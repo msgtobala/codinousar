@@ -65,7 +65,7 @@ const Archive: FaustTemplate<PageArchiveGetArchiveQuery> = (props) => {
         headerMenuItems={props.data?.primaryMenuItems?.nodes || []}
         footerMenuItems={props.data?.footerMenuItems?.nodes || []}
         pageFeaturedImageUrl={null}
-        pageTitle={"Archive " + name}
+        pageTitle={name}
         pageDescription={description || ""}
         generalSettings={
           props.data?.generalSettings as NcgeneralSettingsFieldsFragmentFragment
