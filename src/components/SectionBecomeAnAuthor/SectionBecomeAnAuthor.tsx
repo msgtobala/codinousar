@@ -18,7 +18,7 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
     >
       <div className="flex-shrink-0 mb-14 lg:mb-0 lg:mr-10 lg:w-2/5">
         <span className="text-xs uppercase tracking-wider font-medium text-neutral-400">
-          supper change your planning powers
+          Upgrade your tech skills
         </span>
         <h2 className="font-semibold text-3xl sm:text-4xl mt-3">
           Become an author and share your great articles

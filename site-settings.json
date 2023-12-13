@@ -13,9 +13,9 @@
   "newsletter_section": {
     "enable": true,
     "title": "Join our newsletter 🎉",
-    "description": "Read and share new perspectives on just about any topic. Everyone’s welcome.",
+    "description": "Read and share new updates on just about any technology topic. Stay Updated!",
     "right_image": "/images/SVG-subcribe2.png",
-    "features_list": ["Create a free account.", "Write your stories."]
+    "features_list": ["Subscribe to news letter", "Stay Updated"]
   },
   "top_banner": {
     "enable": false,
