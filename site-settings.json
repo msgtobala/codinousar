@@ -113,8 +113,8 @@
     "description": "Discover the most outstanding articles on all topics of life. Write your stories and share them with the community. "
   },
   "help_page": {
-    "uri": "/helps",
-    "title": "Helps",
+    "uri": "/help",
+    "title": "Help",
     "sub_title": "Read and share new perspectives on just about any topic. Everyone’s welcome."
   },
   "document_page": {
