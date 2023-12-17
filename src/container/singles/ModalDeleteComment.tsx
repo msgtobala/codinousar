@@ -28,7 +28,7 @@ const ModalDeleteComment: FC<ModalDeleteCommentProps> = ({
     return (
       <form action="#" onSubmit={handleClickSubmitForm}>
         <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-200">
-          Delete comment {commentDatabaseId || ""}
+          Delete comment
         </h3>
         <span className="text-sm">
           Are you sure you want to delete this comment? You cannot undo this
