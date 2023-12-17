@@ -1,12 +1,12 @@
-import React, { FC, useContext, useEffect } from "react";
-import ButtonPrimary from "@/components/Button/ButtonPrimary";
-import Textarea from "@/components/Textarea/Textarea";
-import Button from "@/components/Button/Button";
-import { CommentWrapContext } from "./SingleCommentWrap";
-import { useLoginModal } from "../LoginModalProvider";
-import { useSelector } from "react-redux";
-import { RootState } from "@/stores/store";
-import getTrans from "@/utils/getTrans";
+import React, { FC, useContext, useEffect } from 'react';
+import ButtonPrimary from '@/components/Button/ButtonPrimary';
+import Textarea from '@/components/Textarea/Textarea';
+import Button from '@/components/Button/Button';
+import { CommentWrapContext } from './SingleCommentWrap';
+import { useLoginModal } from '../LoginModalProvider';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/stores/store';
+import getTrans from '@/utils/getTrans';
 
 export interface SingleCommentFormProps {
   className?: string;
@@ -21,10 +21,10 @@ export interface SingleCommentFormProps {
 }
 
 const SingleCommentForm: FC<SingleCommentFormProps> = ({
-  className = "mt-5",
+  className = 'mt-5',
   onClickSubmit,
   onClickCancel,
-  defaultValue = "",
+  defaultValue = '',
   rows = 4,
   isAutoFocus,
   isReplyingComment,
@@ -59,7 +59,7 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
       return;
     }
 
-    textareaRef.current && (textareaRef.current.value = "");
+    textareaRef.current && (textareaRef.current.value = '');
   }, [
     isCreateNewCommentLoading,
     textareaRef,
@@ -100,12 +100,12 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
           handleClickWhenNotLogin();
           return;
         }
-        onClickSubmit && onClickSubmit(textareaRef?.current?.value || "");
+        onClickSubmit && onClickSubmit(textareaRef?.current?.value || '');
       }}
       className={`nc-SingleCommentForm ${className}`}
     >
       <Textarea
-        placeholder={T.pageSingle["Add to discussion"]}
+        placeholder={T.pageSingle['Add to discussion']}
         ref={textareaRef}
         required={true}
         defaultValue={defaultValue}
@@ -120,19 +120,21 @@ const SingleCommentForm: FC<SingleCommentFormProps> = ({
         >
           {T.Submit}
         </ButtonPrimary>
-        <Button
-          type="button"
-          disabled={isLoading}
-          pattern="link"
-          onClick={() => {
-            onClickCancel && onClickCancel();
-            if (textareaRef.current) {
-              textareaRef.current.value = "";
-            }
-          }}
-        >
-          {T.Cancel}
-        </Button>
+        {textareaRef?.current?.value !== '' && (
+          <Button
+            type="button"
+            disabled={isLoading}
+            pattern="link"
+            onClick={() => {
+              onClickCancel && onClickCancel();
+              if (textareaRef.current) {
+                textareaRef.current.value = '';
+              }
+            }}
+          >
+            {T.Cancel}
+          </Button>
+        )}
       </div>
     </form>
   );

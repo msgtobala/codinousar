@@ -25,9 +25,9 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
         </h2>
         <span className="block mt-8 text-neutral-500 dark:text-neutral-400">
           Become an author. Read and share new perspectives on just about any technologies. Everyone’s
-          welcomed.
+          welcomed. Send an email to blog@codinousar.com with your email, user name and your profile image
         </span>
-        <ButtonPrimary className="mt-8">Become an author</ButtonPrimary>
+        {/* <ButtonPrimary className="mt-8">Become an author</ButtonPrimary> */}
       </div>
       <div className="flex-grow">
         <MyImage
