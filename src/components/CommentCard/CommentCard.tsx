@@ -159,7 +159,7 @@ const CommentCard: FC<CommentCardProps> = ({
           <div className="flex gap-2 flex-wrap">
             {comment.status === CommentStatusEnum.Approve ? (
               <button
-                className={`inline-flex self-start items-center min-w-[68px] rounded-full text-neutral-600 bg-neutral-100 dark:text-neutral-200 dark:bg-neutral-800 px-3 h-8 hover:bg-teal-50 hover:text-teal-600 dark:hover:text-teal-500 ${twFocusClass()} `}
+                className={`inline-flex self-start items-center min-w-[68px] rounded-full text-neutral-600 bg-neutral-100 px-3 h-8 hover:bg-teal-50 hover:text-teal-600 dark:hover:text-teal-500 ${twFocusClass()} `}
                 title="Reply"
                 onClick={handleClickReplyBtn}
               >
@@ -186,7 +186,7 @@ const CommentCard: FC<CommentCardProps> = ({
             {/* Edit */}
             {isShowDeleteAndEditButton ? (
               <button
-                className={`inline-flex self-start items-center min-w-[68px] rounded-full text-neutral-600 bg-neutral-100 dark:text-neutral-200 dark:bg-neutral-800 px-3 h-8 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:text-indigo-500 ${twFocusClass()} `}
+                className={`inline-flex self-start items-center min-w-[68px] rounded-full text-neutral-600 bg-neutral-100 px-3 h-8 hover:bg-indigo-50 hover:text-indigo-600 dark:hover:text-indigo-500 ${twFocusClass()} `}
                 title="Edit comment"
                 onClick={() => onClickEdit?.(comment)}
               >
